@@ -276,7 +276,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
     /* ===== KASR ===== */
     .kasr { padding: 48px 0 56px; background: var(--k-fondo); }
-    .k-encabezado { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: center; background: #fff; border-radius: 16px; padding: 24px; border-left: 14px solid var(--k-verde); box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); }
+    .k-encabezado { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; background: #fff; border-radius: 16px; padding: 44px 40px; border-left: 14px solid var(--k-verde); box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); }
     .k-encabezado img { border-radius: 12px; }
     .k-marca { margin: 0; font-weight: 800; letter-spacing: 0.3em; color: var(--k-verde); }
     .k-marca span { color: var(--k-texto); }
@@ -339,14 +339,14 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
     /* Hero */
     .kasr { padding-top: 28px; }
-    .hero-sub { font-size: 19px; margin: 6px 0 16px; color: var(--k-texto); max-width: 32ch; }
-    .hero-entrega { display: flex; gap: 14px; align-items: center; padding: 14px 18px; border-radius: 14px; background: #f4f9ec; border: 2px solid var(--k-verde); animation: entrar 0.6s ease both; }
+    .hero-sub { font-size: 19px; line-height: 1.55; margin: 14px 0 28px; color: var(--k-texto); max-width: 32ch; }
+    .hero-entrega { display: flex; gap: 16px; align-items: center; padding: 18px 22px; margin-bottom: 28px; border-radius: 14px; background: #f4f9ec; border: 2px solid var(--k-verde); animation: entrar 0.6s ease both; }
     .he-ico { font-size: 34px; }
     .hero-entrega b { font-size: 20px; color: #3f6b12; }
-    .he-lugares { margin: 4px 0 2px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 800; }
+    .he-lugares { margin: 8px 0 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 800; }
     .he-lugares img { width: 26px; height: 26px; }
     .hero-entrega small { color: var(--k-gris); }
-    .hero-botones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .hero-botones { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 0; }
     .hero-botones .btn { margin-top: 0; font-size: 16px; padding: 13px 22px; }
     @keyframes entrar { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: none; } }
 
