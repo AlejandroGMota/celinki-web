@@ -63,27 +63,65 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
             content="Láminas de hidrogel KASR a mayoreo para vendedores: HD, mate, Blue Ray y privacidad, para celular y tablet. Entrega gratis en Pachuca y Mineral de la Reforma desde 50 piezas. Cortadoras de hidrogel KASR con 50 láminas de regalo."
         />
         <link rel="canonical" href="https://celinki.com/" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta property="og:title" content="Celinki · Hidrogel a mayoreo" />
         <meta property="og:image" content="https://celinki.com/img/hidrogel/hd-vs-mate.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
     </head>
     <body>
+        <header class="barra">
+            <div class="wrap barra-in">
+                <a class="logo" href="/" aria-label="Celinki, inicio"><img src="/favicon.svg" alt="" width="28" height="28" /><span>celinki</span></a>
+                <nav class="menu">
+                    <a href="#celular">Micas</a>
+                    <a href="#como-pedir">Cómo pedir</a>
+                    <a href="#entregas">Entregas</a>
+                    <a href="#cortadoras">Cortadoras</a>
+                </nav>
+                <a class="btn btn-wa btn-chico" href={hidrogelWa()} target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </header>
+
         <main id="hidrogel" class="kasr">
             <div class="wrap">
                 <div class="k-encabezado">
                     <div>
-                        <p class="k-marca">CELINKI · <span>KASR</span></p>
-                        <h1>Hidrogel a mayoreo</h1>
-                        <p class="k-sub">Láminas de hidrogel KASR a mayoreo para vendedores y técnicos.</p>
-                        <p class="k-cortado">✂ ¿No tienes cortadora? <b>Te las vendemos cortadas a tu modelo, al mismo precio.</b></p>
-                        <p class="k-zonas"><b>Entrega gratis</b> en <b>Pachuca</b> y <b>Mineral de la Reforma</b> desde <b>50 piezas</b> o <b>30 de privacidad</b></p>
-                        <a class="btn btn-wa" href={hidrogelWa()} target="_blank" rel="noopener">Cotizar hidrogel · 771 868 2542</a>
+                        <p class="k-marca">CELINKI · <span>HIDROGEL KASR</span></p>
+                        <h1>Micas de hidrogel <span>cortadas a tu modelo</span></h1>
+                        <p class="k-sub">O lámina a mayoreo para vendedores y técnicos. <b>Mismo precio.</b></p>
+                        <div class="sellos">
+                            <p class="sello sello-corte"><span class="sello-ico">✂</span><span><b>Cortada a tu modelo</b>mismo precio que la lámina</span></p>
+                            <p class="sello sello-entrega"><span class="sello-ico">🚚</span><span><b>Entrega gratis</b>desde 50 piezas o 30 de privacidad</span><span class="sello-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="Pachuca" /><img src="/img/iconos/mineral-castillete.svg" alt="Mineral de la Reforma" /></span></p>
+                        </div>
+                        <div class="hero-botones">
+                            <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas</a>
+                            <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel a mayoreo:')} target="_blank" rel="noopener">Pedir lámina</a>
+                        </div>
                     </div>
-                    <img src="/img/hidrogel/hd-vs-mate.jpg" alt="Láminas de hidrogel KASR HD y mate" />
+                    <img src="/img/hidrogel/maquina.jpg" alt="Cortadora KASR cortando micas de hidrogel a la medida" />
                 </div>
 
-                <h3 class="k-flechas">Celular</h3>
+                <section id="entregas" class="entregas">
+                    <div class="entregas-txt">
+                        <h2>Entrega gratis</h2>
+                        <p>Desde <b>50 piezas</b> o <b>30 de privacidad</b>.</p>
+                    </div>
+                    <ul class="lugares">
+                        <li><img src="/img/iconos/pachuca-reloj.svg" alt="" /><span><b>Pachuca</b>Te la llevamos</span></li>
+                        <li><img src="/img/iconos/mineral-castillete.svg" alt="" /><span><b>Mineral de la Reforma</b>Te la llevamos</span></li>
+                        <li><img src="/favicon.svg" alt="" class="lugar-tienda" /><span><b>GAMMA, Plaza Tere</b>O recoge en tienda</span></li>
+                    </ul>
+                </section>
+
+                <div class="selector" role="group" aria-label="¿Cómo las quieres?">
+                    <span>¿Cómo las quieres?</span>
+                    <button type="button" class="sel activo" data-modo="cortadas" aria-pressed="true">✂ Cortadas a mi modelo</button>
+                    <button type="button" class="sel" data-modo="lamina" aria-pressed="false">Lámina</button>
+                    <small>Mismo precio</small>
+                </div>
+
+                <h3 class="k-flechas" id="celular">Celular</h3>
                 <ul class="k-grid">
                     {celular.map((m) => (
                         <li class="k-card" style={`--etq:${m.color}`}>
@@ -94,7 +132,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                                 <h4>{m.nombre}</h4>
                                 <p>{m.nota}</p>
                                 <p class="k-precio">${m.precio}<small> por lámina</small></p>
-                                <a href={hidrogelWa(m.nombre)} target="_blank" rel="noopener">Pedir</a>
+                                <a class="pedir" data-tipo={m.nombre} href={wa(telHidrogel, `Hola Celinki, quiero micas ${m.nombre} cortadas. Modelos y cantidades:`)} target="_blank" rel="noopener">Pedir cortadas</a>
                             </div>
                         </li>
                     ))}
@@ -111,7 +149,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                                 <h4>{m.nombre}</h4>
                                 <p>{m.nota}</p>
                                 <p class="k-precio">${m.precio}<small> por lámina</small></p>
-                                <a href={hidrogelWa(m.nombre)} target="_blank" rel="noopener">Pedir</a>
+                                <a class="pedir" data-tipo={m.nombre} href={wa(telHidrogel, `Hola Celinki, quiero micas ${m.nombre} cortadas. Modelos y cantidades:`)} target="_blank" rel="noopener">Pedir cortadas</a>
                             </div>
                         </li>
                     ))}
@@ -132,10 +170,10 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                         <span>Tú eliges. <strong>Mismo precio.</strong></span>
                     </li>
                     <li>
-                        <img src="/img/pasos/3-cortamos.svg" alt="Plotter KASR cortando la mica" loading="lazy" />
+                        <img src="/img/pasos/3-cortamos.svg" alt="Cortadora KASR cortando la mica" loading="lazy" />
                         <span class="paso-n">3</span>
                         <b>La cortamos a tu medida</b>
-                        <span>Con plotter KASR y miles de modelos de celular y tablet.</span>
+                        <span>Con cortadora KASR y miles de modelos de celular y tablet.</span>
                     </li>
                     <li>
                         <img src="/img/pasos/4-entrega.svg" alt="Entrega gratis en Pachuca y Mineral de la Reforma" loading="lazy" />
@@ -157,6 +195,10 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                 <div class="k-paquete">
                     <p><b>Arma tu propio negocio de micas.</b> Cada cortadora incluye un <b>paquete inicial de 50 láminas</b>:</p>
                     <ul>{paquete.map((x) => <li>{x}</li>)}</ul>
+                    <ul class="condiciones">
+                        <li><span>🚚</span><b>Entrega en 2 a 3 semanas</b> en la dirección que nos indiques</li>
+                        <li><span>💳</span><b>Anticipo mínimo del 60%</b> para apartar tu cortadora</li>
+                    </ul>
                     <p class="k-gris">Con espátulas, tapete, cuchillas, cable y eliminador. Corta micas para celular, tablet, laptop, smartwatch, cámara, consola y más. Conexión WiFi/Bluetooth y modelos en la nube.</p>
                 </div>
                 <ul class="k-grid">
@@ -202,6 +244,27 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         </footer>
 
         <a class="flotante" href={hidrogelWa()} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
+        <script is:inline>
+            (() => {
+                const tel = '527718682542';
+                const texto = (modo, tipo) =>
+                    modo === 'cortadas'
+                        ? `Hola Celinki, quiero micas ${tipo} cortadas. Modelos y cantidades:`
+                        : `Hola Celinki, quiero láminas ${tipo} a mayoreo. Cantidad:`;
+                const aplicar = (modo) => {
+                    document.querySelectorAll('.sel').forEach((b) => {
+                        const on = b.dataset.modo === modo;
+                        b.classList.toggle('activo', on);
+                        b.setAttribute('aria-pressed', on);
+                    });
+                    document.querySelectorAll('a.pedir').forEach((a) => {
+                        a.href = `https://wa.me/${tel}?text=${encodeURIComponent(texto(modo, a.dataset.tipo))}`;
+                        a.textContent = modo === 'cortadas' ? 'Pedir cortadas' : 'Pedir lámina';
+                    });
+                };
+                document.querySelectorAll('.sel').forEach((b) => b.addEventListener('click', () => aplicar(b.dataset.modo)));
+            })();
+        </script>
     </body>
 </html>
 
@@ -274,6 +337,59 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .pasos-cta .btn { margin-top: 0; font-size: 17px; padding: 14px 26px; }
     .btn-borde { background: #fff; color: var(--k-texto); border: 2px solid var(--k-texto); }
 
+    /* Barra superior */
+    .barra { position: sticky; top: 0; z-index: 20; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border-bottom: 1px solid #e5e8ee; }
+    .barra-in { display: flex; align-items: center; gap: 20px; height: 60px; }
+    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--k-texto); font-weight: 800; font-size: 24px; letter-spacing: -0.5px; }
+    .menu { display: flex; gap: 18px; margin-left: auto; }
+    .menu a { color: var(--k-texto); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .menu a:hover { color: #6fa22c; }
+    .btn-chico { margin-top: 0; padding: 8px 16px; font-size: 14px; }
+    html { scroll-padding-top: 72px; }
+
+    /* Hero */
+    .kasr { padding-top: 28px; }
+    .k-encabezado h1 span { display: block; color: var(--k-texto); }
+    .sellos { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 4px; }
+    .sello { margin: 0; display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 14px; animation: entrar 0.6s ease both; }
+    .sello b { display: block; font-size: 16px; }
+    .sello span { font-size: 13px; line-height: 1.25; }
+    .sello .sello-ico { font-size: 24px; }
+    .sello-corte { background: #1b1b1f; color: #fff; }
+    .sello-corte .sello-ico { color: var(--k-verde); }
+    .sello-entrega { background: var(--k-verde); color: #1b1b1f; animation-delay: 0.15s; }
+    .sello-lugares { display: flex; gap: 4px; }
+    .sello-lugares img { width: 26px; height: 26px; border: 2px solid #fff; border-radius: 50%; }
+    .hero-botones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .hero-botones .btn { margin-top: 0; font-size: 16px; padding: 13px 22px; }
+    @keyframes entrar { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+    /* Entregas */
+    .entregas { display: grid; grid-template-columns: 0.8fr 2fr; gap: 20px; align-items: center; margin-top: 18px; padding: 20px 24px; border-radius: 16px; background: #f4f9ec; border: 2px solid #dbe9c4; }
+    .entregas h2 { margin: 0; font-family: 'Times New Roman', Georgia, serif; text-transform: uppercase; color: #6fa22c; font-size: 30px; line-height: 1; }
+    .entregas p { margin: 6px 0 0; }
+    .lugares { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .lugares li { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 12px; padding: 10px 12px; }
+    .lugares img { width: 42px; height: 42px; flex: none; }
+    .lugares .lugar-tienda { padding: 6px; background: #f5f6f8; border-radius: 50%; }
+    .lugares span { font-size: 13px; color: var(--k-gris); }
+    .lugares span b { display: block; color: var(--k-texto); font-size: 15px; }
+
+    /* Selector cortadas / lámina */
+    .selector { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 28px 0 -12px; }
+    .selector > span { font-weight: 800; margin-right: 4px; }
+    .sel { font: inherit; font-weight: 700; padding: 8px 16px; border-radius: 999px; border: 2px solid #1b1b1f; background: #fff; color: #1b1b1f; cursor: pointer; }
+    .sel.activo { background: #1b1b1f; color: #fff; }
+    .selector small { color: #6fa22c; font-weight: 800; }
+
+    /* Fotos: fondo mientras cargan; cuadrícula centrada sin huecos */
+    .k-foto { background: #f0f2f5; }
+    .k-grid { display: flex; flex-wrap: wrap; justify-content: center; }
+    .k-grid > .k-card { flex: 0 1 calc(25% - 11px); min-width: 220px; }
+
+    .condiciones { list-style: none; padding: 0; margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .condiciones li { display: flex; align-items: center; gap: 8px; background: #1b1b1f; color: #fff; border-radius: 10px; padding: 8px 14px; font-size: 14px; }
+    .condiciones b { color: var(--k-verde); }
     footer { padding: 32px 16px 96px; color: var(--k-gris); }
     footer a { color: var(--k-texto); }
     .flotante { position: fixed; right: 16px; bottom: 16px; padding: 12px 18px; border-radius: 999px; background: var(--wa); color: #052e16; font-weight: 800; text-decoration: none; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); z-index: 10; }
@@ -283,5 +399,16 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
             .pasos { grid-template-columns: 1fr 1fr; }
         .pasos::before { display: none; }
         .visita { grid-template-columns: 1fr; }
+        .menu { display: none; }
+        .entregas { grid-template-columns: 1fr; }
+        .lugares { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+        .pasos { grid-template-columns: 1fr; }
+        .k-grid > .k-card { flex-basis: 100%; }
+        .flotante { left: 16px; right: 16px; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .sello, .pasos li { animation: none; transition: none; }
     }
 </style>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Ícono Celinki (propuesta A, provisional): celular con la mica de hidrogel despegándose -->
+  <rect x="14" y="3" width="36" height="58" rx="9" fill="#1b1b1f"/>
+  <path d="M18 12 a5 5 0 0 1 5 -5 H35 L46 18 V52 a5 5 0 0 1 -5 5 H23 a5 5 0 0 1 -5 -5 Z" fill="#8dc63f"/>
+  <path d="M35 7 L46 18 L37 19.5 Z" fill="#cfe9a5"/>
+  <path d="M35 7 L37 19.5 L46 18" fill="none" stroke="#6fa22c" stroke-width="1.2"/>
+</svg>

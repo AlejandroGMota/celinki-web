@@ -26,7 +26,7 @@ Fecha: 2026-10-12. Basado en capturas de la página publicada. Objetivo: que en 
      - ✂ **Cortada a tu modelo · mismo precio**
      - 🚚 **Entrega gratis** · 50 piezas o 30 de privacidad
    - Botones: «Pedir cortadas» (verde, principal) y «Pedir lámina» (blanco con borde).
-   - Imagen: video corto o foto del plotter KASR cortando una mica, con un celular al lado (de `docs/referencias/kasr/videos/`).
+   - Imagen: video corto o foto del cortadora KASR cortando una mica, con un celular al lado (de `docs/referencias/kasr/videos/`).
 4. **Sección «Entregas gratis»** (bloque propio, fondo verde muy claro):
    - Viñetas con ícono de cada lugar:
      - ![](../public/img/iconos/pachuca-reloj.svg) **Pachuca** · Reloj Monumental
@@ -69,7 +69,7 @@ Alternativas si no convencen: Pachuca → Cristo Rey o el escudo de los Tuzos; M
 ### Movimiento (del checklist, sección 9)
 - Aparición suave al hacer scroll en tarjetas y pasos.
 - Los dos sellos del hero entran con un pequeño rebote al cargar.
-- Video del plotter en bucle, sin sonido, con foto de respaldo.
+- Video de la cortadora en bucle, sin sonido, con foto de respaldo.
 - Todo quieto si el teléfono tiene «reducir movimiento».
 
 ### Celular primero
@@ -89,4 +89,4 @@ Alternativas si no convencen: Pachuca → Cristo Rey o el escudo de los Tuzos; M
 - Elegir logo (A, B o C de `docs/logo/propuestas.jpg`).
 - ¿Cuánto tarda la entrega y qué días? (para el sello y las preguntas).
 - ¿Cómo te pagan? (efectivo, transferencia).
-- Fotos reales: tu plotter cortando, micas colocadas, tus láminas Blue Ray y 13" privacidad.
+- Fotos reales: tu cortadora cortando, micas colocadas, tus láminas Blue Ray y 13" privacidad.

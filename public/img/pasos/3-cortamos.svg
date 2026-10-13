@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" font-family="Montserrat, Arial, sans-serif">
-  <!-- Paso 3: el plotter KASR corta la mica a la medida -->
+  <!-- Paso 3: la cortadora KASR corta la mica a la medida -->
   <rect width="320" height="220" rx="18" fill="#f4f9ec"/>
   <g transform="translate(36 60)">
     <!-- cuerpo de la máquina -->

@@ -50,7 +50,7 @@ Qué podríamos poner en el sitio, por sección. Marca lo que sí va y ajusta. F
 ## 5. Hidrogel a mayoreo (estilo KASR)
 - [ ] Encabezado: «Micas de hidrogel a mayoreo» + subtítulo para tiendas y técnicos
 - [ ] Tarjetas por tipo de hoja con su color KASR: HD, Matte, Privacidad HD, Privacidad Matte, Privacidad 360, Blue Ray, Tablet
-- [ ] Cómo funciona: 1) mandas modelos y cantidades por WhatsApp · 2) cortamos con plotter KASR · 3) entregamos
+- [ ] Cómo funciona: 1) mandas modelos y cantidades por WhatsApp · 2) cortamos con cortadora KASR · 3) entregamos
 - [ ] Zonas y días de entrega: Pachuca, Mineral de la Reforma, alrededores (**falta: días y mínimo de piezas**)
 - [ ] Precios: ¿públicos o solo por WhatsApp? (**decisión pendiente**)
 - [ ] Foto o render de la máquina KASR y de las hojas
@@ -81,7 +81,7 @@ Qué podríamos poner en el sitio, por sección. Marca lo que sí va y ajusta. F
 
 ### Entrada (hero)
 - [ ] Hero de hidrogel a pantalla completa: fondo blanco/gris claro estilo KASR, título serif verde lima «MICAS DE HIDROGEL», subtítulo «cortadas a la medida de tu modelo», botón WhatsApp hidrogel (771 868 2542)
-- [ ] Video corto del plotter KASR cortando una mica (de `docs/referencias/kasr/videos/`, recortado a 6–10 s, sin audio, en bucle, `muted playsinline`), con foto de respaldo para conexiones lentas
+- [ ] Video corto del cortadora KASR cortando una mica (de `docs/referencias/kasr/videos/`, recortado a 6–10 s, sin audio, en bucle, `muted playsinline`), con foto de respaldo para conexiones lentas
 - [ ] Contador o franja de confianza: «miles de modelos» · «corte en minutos» · «entrega en Pachuca y Mineral de la Reforma» · «mayoreo para tiendas»
 
 ### Animaciones (sutiles, rápidas)
