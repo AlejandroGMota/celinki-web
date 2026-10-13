@@ -1,21 +1,29 @@
 ---
-const whatsapp = '527711030032';
-const wa = (texto: string) => `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+const wa = (numero: string, texto: string) => `https://wa.me/52${numero}?text=${encodeURIComponent(texto)}`;
 
-const pedido = wa('Hola Celinki, quiero hacer un pedido');
-const mayoreo = wa('Hola Celinki, quiero cotizar micas de hidrogel a mayoreo');
+const telHidrogel = '7718682542';
+const hidrogelWa = (tipo?: string) =>
+    wa(telHidrogel, tipo ? `Hola Celinki, quiero micas de hidrogel ${tipo}` : 'Hola Celinki, quiero cotizar micas de hidrogel');
+
 const mapa = 'https://www.google.com/maps/search/?api=1&query=Plaza+Tere+Santa+Gertrudis+Hidalgo';
 
-const productos = [
-    { nombre: 'Fundas', detalle: 'Para los modelos más recientes' },
-    { nombre: 'Micas de cristal', detalle: 'Normales y de privacidad' },
-    { nombre: 'Micas de hidrogel', detalle: 'HD, Matte, privacidad y Blue Ray, colocadas al momento' },
-    { nombre: 'Cargadores y cables', detalle: 'USB-C, Lightning y más' },
-    { nombre: 'Adaptadores', detalle: 'Y todo tipo de accesorios de tecnología' },
-    { nombre: 'Tablets', detalle: 'Micas de hidrogel para tablet' },
+// Colores de etiqueta como en los empaques KASR
+type Mica = { nombre: string; precio: number; nota: string; color: string; img?: string };
+const celular: Mica[] = [
+    { nombre: 'HD', precio: 12, nota: 'Transparente, máxima claridad', color: '#8dc63f', img: '/img/hidrogel/hd.jpg' },
+    { nombre: 'Mate', precio: 12, nota: 'Antirreflejo y anti-huellas', color: '#b8893a', img: '/img/hidrogel/hd-vs-mate.jpg' },
+    { nombre: 'Blue Ray', precio: 12, nota: 'Filtra la luz azul', color: '#f28c28' },
+    { nombre: 'Privacidad Mate', precio: 28, nota: 'Nadie ve tu pantalla de lado', color: '#3a3a40', img: '/img/hidrogel/privacidad-mate.jpg' },
+    { nombre: 'Privacidad HD', precio: 32, nota: 'Privacidad con alta definición', color: '#1b1b1f', img: '/img/hidrogel/privacidad-hd.jpg' },
+    { nombre: 'Privacidad 360', precio: 55, nota: 'Privacidad por los 4 lados', color: '#c62828', img: '/img/hidrogel/privacidad-360.jpg' },
 ];
-
-const hidrogel = ['HD', 'Matte', 'Privacidad HD', 'Privacidad Matte', 'Privacidad 360', 'Blue Ray', 'Tablet'];
+const tablet: Mica[] = [
+    { nombre: 'Tablet 11" HD', precio: 32, nota: 'Transparente', color: '#8dc63f', img: '/img/hidrogel/tablet-11.jpg' },
+    { nombre: 'Tablet 11" Mate', precio: 32, nota: 'Antirreflejo', color: '#b8893a', img: '/img/hidrogel/tablet-11.jpg' },
+    { nombre: 'Tablet 13"', precio: 45, nota: 'Pantalla completa', color: '#8dc63f' },
+    { nombre: 'Tablet 13" reducida', precio: 42, nota: 'Para usar con funda', color: '#8dc63f' },
+    { nombre: 'Tablet 13" Privacidad HD', precio: 95, nota: 'Privacidad con alta definición', color: '#1b1b1f' },
+];
 ---
 
 <!doctype html>
@@ -23,136 +31,138 @@ const hidrogel = ['HD', 'Matte', 'Privacidad HD', 'Privacidad Matte', 'Privacida
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Celinki · Accesorios para celular</title>
+        <title>Celinki · Micas de hidrogel</title>
         <meta
             name="description"
-            content="Accesorios para celular en Santa Gertrudis, Hidalgo. Fundas, micas de cristal e hidrogel, cargadores y adaptadores. Micas de hidrogel a mayoreo con entrega en Pachuca y Mineral de la Reforma."
+            content="Micas de hidrogel cortadas a la medida de tu celular o tablet: HD, mate, Blue Ray y privacidad. Menudeo y mayoreo, con entrega en Pachuca y Mineral de la Reforma."
         />
         <link rel="canonical" href="https://celinki.com/" />
+        <meta property="og:title" content="Celinki · Micas de hidrogel" />
+        <meta property="og:image" content="https://celinki.com/img/hidrogel/hd-vs-mate.jpg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <header class="hero">
+        <main id="hidrogel" class="kasr">
             <div class="wrap">
-                <p class="marca">Celinki</p>
-                <h1>Accesorios para celular</h1>
-                <p class="lema">Fundas, micas y todo lo que tu equipo necesita. Pide por WhatsApp o visítanos en Plaza Tere.</p>
-                <a class="btn" href={pedido} target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            </div>
-        </header>
+                <div class="k-encabezado">
+                    <div>
+                        <p class="k-marca">CELINKI · <span>KASR</span></p>
+                        <h1>Micas de hidrogel</h1>
+                        <p class="k-sub">Cortadas a la medida de tu modelo con plotter KASR. Para tu celular o para tu tienda.</p>
+                        <p class="k-zonas">Entrega en <b>Pachuca</b>, <b>Mineral de la Reforma</b> y alrededores · Mayoreo para tiendas y técnicos</p>
+                        <a class="btn btn-wa" href={hidrogelWa()} target="_blank" rel="noopener">Cotizar hidrogel · 771 868 2542</a>
+                    </div>
+                    <img src="/img/hidrogel/maquina.jpg" alt="Plotter KASR cortando micas de hidrogel" />
+                </div>
 
-        <main class="wrap">
-            <section>
-                <h2>Qué tenemos</h2>
-                <ul class="grid">
-                    {productos.map((p) => (
-                        <li class="card">
-                            <h3>{p.nombre}</h3>
-                            <p>{p.detalle}</p>
+                <h3 class="k-flechas">Celular</h3>
+                <ul class="k-grid">
+                    {celular.map((m) => (
+                        <li class="k-card" style={`--etq:${m.color}`}>
+                            <div class="k-foto">
+                                {m.img ? <img src={m.img} alt={`Mica de hidrogel ${m.nombre}`} loading="lazy" /> : <span class="k-sinfoto">{m.nombre}</span>}
+                            </div>
+                            <div class="k-info">
+                                <h4>{m.nombre}</h4>
+                                <p>{m.nota}</p>
+                                <p class="k-precio">${m.precio}<small> por pieza</small></p>
+                                <a href={hidrogelWa(m.nombre)} target="_blank" rel="noopener">Pedir</a>
+                            </div>
                         </li>
                     ))}
                 </ul>
-            </section>
 
-            <section class="mayoreo">
-                <h2>Micas de hidrogel a mayoreo</h2>
-                <p>Para tiendas de celulares y técnicos. Cortadas por modelo, listas para colocar.</p>
-                <ul class="chips">
-                    {hidrogel.map((t) => <li>{t}</li>)}
+                <h3 class="k-flechas">Tablet</h3>
+                <ul class="k-grid">
+                    {tablet.map((m) => (
+                        <li class="k-card" style={`--etq:${m.color}`}>
+                            <div class="k-foto">
+                                {m.img ? <img src={m.img} alt={`Mica de hidrogel ${m.nombre}`} loading="lazy" /> : <span class="k-sinfoto">{m.nombre}</span>}
+                            </div>
+                            <div class="k-info">
+                                <h4>{m.nombre}</h4>
+                                <p>{m.nota}</p>
+                                <p class="k-precio">${m.precio}<small> por pieza</small></p>
+                                <a href={hidrogelWa(m.nombre)} target="_blank" rel="noopener">Pedir</a>
+                            </div>
+                        </li>
+                    ))}
                 </ul>
-                <p><strong>Entrega en Pachuca, Mineral de la Reforma y alrededores.</strong></p>
-                <a class="btn" href={mayoreo} target="_blank" rel="noopener">Cotizar mayoreo</a>
-            </section>
 
-            <section>
-                <h2>Visítanos</h2>
-                <div class="card visita">
+                <h3 class="k-flechas">Cómo pedir</h3>
+                <ol class="k-pasos">
+                    <li><b>Mándanos modelo y tipo</b><span>Por WhatsApp: «2 HD para iPhone 15 y 1 privacidad para A55».</span></li>
+                    <li><b>La cortamos a tu medida</b><span>El plotter KASR tiene miles de modelos de celular y tablet.</span></li>
+                    <li><b>Te la entregamos o la colocamos</b><span>En GAMMA, Plaza Tere, o entrega en Pachuca y Mineral de la Reforma.</span></li>
+                </ol>
+
+                <h3 class="k-flechas" id="visitanos">Recoge en tienda</h3>
+                <div class="k-card visita" style="--etq:#8dc63f">
                     <h3>GAMMA Accesorios para celular</h3>
                     <p>Plaza Tere, A El Huixmí, 42111 Santa Gertrudis, Hgo.</p>
                     <p>Lunes a viernes, 1:00 a 5:00 pm</p>
-                    <p><a href={mapa} target="_blank" rel="noopener">Ver en Google Maps</a></p>
+                    <p><a class="k-mapa" href={mapa} target="_blank" rel="noopener">Ver en Google Maps</a></p>
                 </div>
-            </section>
+            </div>
         </main>
 
         <footer class="wrap">
-            <p>Celinki · WhatsApp <a href={pedido} target="_blank" rel="noopener">771 103 0032</a></p>
+            <p>Celinki · Micas de hidrogel · WhatsApp <a href={hidrogelWa()} target="_blank" rel="noopener">771 868 2542</a></p>
         </footer>
 
-        <a class="flotante" href={pedido} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
+        <a class="flotante" href={hidrogelWa()} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
     </body>
 </html>
 
 <style is:global>
     :root {
-        --fondo: #fafaf9;
-        --texto: #1c1917;
-        --suave: #57534e;
-        --borde: #e7e5e4;
-        --tarjeta: #ffffff;
-        --acento: #0f766e;
         --wa: #25d366;
-    }
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --fondo: #1c1917;
-            --texto: #f5f5f4;
-            --suave: #a8a29e;
-            --borde: #44403c;
-            --tarjeta: #292524;
-            --acento: #2dd4bf;
-        }
+        --k-fondo: #f5f6f8;
+        --k-texto: #1f2328;
+        --k-gris: #6b7280;
+        --k-verde: #8dc63f;
     }
     * { box-sizing: border-box; }
-    body {
-        margin: 0;
-        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-        background: var(--fondo);
-        color: var(--texto);
-        line-height: 1.5;
-    }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
-    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--borde); }
-    .marca { margin: 0; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--acento); }
-    h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 8px 0; line-height: 1.1; }
-    .lema { color: var(--suave); max-width: 40ch; font-size: 1.1rem; }
-    h2 { margin-top: 48px; }
-    h3 { margin: 0 0 4px; font-size: 1.05rem; }
-    .btn {
-        display: inline-block;
-        margin-top: 12px;
-        padding: 12px 20px;
-        border-radius: 8px;
-        background: var(--wa);
-        color: #052e16;
-        font-weight: 700;
-        text-decoration: none;
-    }
-    .grid {
-        list-style: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 12px;
-    }
-    .card { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 12px; padding: 16px; }
-    .card p { margin: 0; color: var(--suave); }
-    .visita p { margin: 4px 0; }
-    .mayoreo { margin-top: 48px; padding: 24px; border-radius: 12px; border: 2px solid var(--acento); }
-    .mayoreo h2 { margin-top: 0; }
-    .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-    .chips li { border: 1px solid var(--borde); border-radius: 999px; padding: 4px 12px; background: var(--tarjeta); }
-    a { color: var(--acento); }
-    footer { margin: 64px auto 96px; color: var(--suave); }
-    .flotante {
-        position: fixed;
-        right: 16px;
-        bottom: 16px;
-        padding: 12px 18px;
-        border-radius: 999px;
-        background: var(--wa);
-        color: #052e16;
-        font-weight: 700;
-        text-decoration: none;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    body { margin: 0; font-family: Montserrat, system-ui, sans-serif; color: var(--k-texto); background: var(--k-fondo); line-height: 1.5; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+    img { max-width: 100%; height: auto; display: block; }
+    .btn { display: inline-block; margin-top: 12px; padding: 12px 20px; border-radius: 10px; font-weight: 800; text-decoration: none; }
+    .btn-wa { background: var(--wa); color: #052e16; }
+
+    /* ===== KASR ===== */
+    .kasr { padding: 48px 0 56px; background: var(--k-fondo); }
+    .k-encabezado { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: center; background: #fff; border-radius: 16px; padding: 24px; border-left: 14px solid var(--k-verde); box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); }
+    .k-encabezado img { border-radius: 12px; }
+    .k-marca { margin: 0; font-weight: 800; letter-spacing: 0.3em; color: var(--k-verde); }
+    .k-marca span { color: var(--k-texto); }
+    .k-encabezado h1 { margin: 6px 0; font-family: 'Times New Roman', Georgia, serif; font-size: clamp(30px, 4.5vw, 46px); color: var(--k-verde); text-transform: uppercase; line-height: 1.05; }
+    .k-sub { margin: 0 0 8px; color: var(--k-gris); }
+    .k-zonas { margin: 0; }
+    .k-flechas { display: flex; align-items: center; gap: 12px; margin: 36px 0 14px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .k-flechas::before { content: '«'; color: #fff; background: var(--k-verde); border-radius: 6px; padding: 0 8px; font-size: 22px; line-height: 1.3; }
+    .k-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+    .k-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07); border-top: 8px solid var(--etq); display: flex; flex-direction: column; }
+    .k-foto { aspect-ratio: 1; background: #fff; display: grid; place-items: center; }
+    .k-foto img { width: 100%; height: 100%; object-fit: contain; }
+    .k-sinfoto { font-family: 'Times New Roman', Georgia, serif; font-weight: 700; font-size: 26px; text-transform: uppercase; color: var(--etq); text-align: center; padding: 16px; border: 3px solid var(--etq); border-radius: 10px; margin: 24px; }
+    .k-info { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .k-info h4 { margin: 0; font-size: 17px; }
+    .k-info p { margin: 0; color: var(--k-gris); font-size: 14px; }
+    .k-info .k-precio { color: var(--k-texto); font-weight: 800; font-size: 26px; margin-top: 6px; }
+    .k-precio small { font-size: 13px; font-weight: 600; color: var(--k-gris); }
+    .k-info a { margin-top: auto; align-self: flex-start; padding: 6px 14px; border-radius: 8px; background: var(--wa); color: #052e16; font-weight: 800; text-decoration: none; }
+    .k-pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .k-pasos li { counter-increment: paso; background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); display: flex; flex-direction: column; gap: 4px; }
+    .k-pasos li::before { content: counter(paso); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--k-verde); color: #fff; font-weight: 800; }
+    .k-pasos span { color: var(--k-gris); font-size: 14px; }
+
+    footer { padding: 32px 16px 96px; color: var(--k-gris); }
+    footer a { color: var(--k-texto); }
+    .flotante { position: fixed; right: 16px; bottom: 16px; padding: 12px 18px; border-radius: 999px; background: var(--wa); color: #052e16; font-weight: 800; text-decoration: none; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); z-index: 10; }
+
+    @media (max-width: 860px) {
+        .k-encabezado { grid-template-columns: 1fr; }
+        .k-pasos { grid-template-columns: 1fr; }
     }
 </style>
