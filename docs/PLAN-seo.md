@@ -62,5 +62,7 @@ Fecha: 2026-10-13. Objetivo: aparecer cuando alguien busque (en Google, Google M
   - Mismo nombre, teléfono y sitio en Facebook, Mercado Libre y directorios.
 - [x] Perfil «Celinki» creado en Google Business (2026-10-13): categoría Tienda de accesorios para teléfonos celulares, área de servicio Pachuca de Soto y Mineral de la Reforma, tel. 771 868 2542, sitio celinki.com, chat por WhatsApp. Dirección de verificación privada (no pública).
 - [ ] Verificar el perfil con video desde el celular (Google Maps o business.google.com, cuenta cmke14y@gmail.com).
-- [ ] Al verificarse: descripción, fotos, productos (cada tipo de mica) y categoría adicional «Mayorista».
+- [x] Horario: domingo a viernes 24 horas, sábado cerrado; descripción cargada (2026-10-13).
+- [ ] Al verificarse: fotos reales, productos (cada tipo de mica) y categoría adicional «Mayorista».
+- [ ] Decidir si usar el crédito de Google Ads de MXN 7,000 que ofreció Google (requiere cuenta de Ads con forma de pago).
 - [ ] En el sitio, los datos estructurados ya son de Celinki (no de GAMMA) con el 771 868 2542.
