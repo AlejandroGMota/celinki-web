@@ -50,14 +50,68 @@ const cortadoras: Cortadora[] = [
 ];
 const paquete = ['15 HD', '15 Mate', '10 Privacidad Mate', '5 Tablet 11" HD', '5 Tablet 11" Mate'];
 const pesos = (n: number) => n.toLocaleString('es-MX');
+
+const ofertas = [...celular, ...tablet].map((m) => ({
+    '@type': 'Offer',
+    priceCurrency: 'MXN',
+    price: m.precio,
+    itemOffered: { '@type': 'Product', name: `Mica de hidrogel ${m.nombre}`, category: 'Protector de pantalla de hidrogel' },
+}));
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'Store',
+            '@id': 'https://celinki.com/#tienda',
+            name: 'Celinki',
+            alternateName: 'GAMMA Accesorios para celular',
+            url: 'https://celinki.com/',
+            logo: 'https://celinki.com/favicon.svg',
+            image: 'https://celinki.com/img/hidrogel/maquina.jpg',
+            description: 'Micas de hidrogel KASR cortadas al tamaño del modelo que elijas o en lámina sin corte, a mayoreo. Entrega gratis en Pachuca y Mineral de la Reforma.',
+            telephone: '+52 771 868 2542',
+            priceRange: '$12 - $10,690 MXN',
+            currenciesAccepted: 'MXN',
+            address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Plaza Tere, A El Huixmí',
+                addressLocality: 'Santa Gertrudis',
+                addressRegion: 'Hidalgo',
+                postalCode: '42111',
+                addressCountry: 'MX',
+            },
+            geo: { '@type': 'GeoCoordinates', latitude: 20.0867391, longitude: -98.8078223 },
+            openingHoursSpecification: [
+                { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
+            ],
+            areaServed: [
+                { '@type': 'City', name: 'Pachuca de Soto' },
+                { '@type': 'City', name: 'Mineral de la Reforma' },
+            ],
+            hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Micas de hidrogel KASR',
+                itemListElement: ofertas,
+            },
+        },
+        {
+            '@type': 'WebSite',
+            '@id': 'https://celinki.com/#sitio',
+            url: 'https://celinki.com/',
+            name: 'Celinki',
+            inLanguage: 'es-MX',
+            publisher: { '@id': 'https://celinki.com/#tienda' },
+        },
+    ],
+};
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Celinki · Hidrogel a mayoreo</title>
+        <title>Micas de hidrogel cortadas a tu modelo · Pachuca y Mineral de la Reforma | Celinki</title>
         <meta
             name="description"
             content="Micas de hidrogel KASR cortadas al tamaño del modelo que elijas o en lámina sin corte, a mayoreo: HD, mate, Blue Ray y privacidad, para celular y tablet. Entrega gratis en Pachuca y Mineral de la Reforma desde 50 piezas. Cortadoras de hidrogel KASR con 50 láminas de regalo."
@@ -65,8 +119,16 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         <link rel="canonical" href="https://celinki.com/" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script is:inline>document.documentElement.classList.add('js');</script>
+        <meta name="theme-color" content="#8dc63f" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://celinki.com/" />
+        <meta property="og:locale" content="es_MX" />
+        <meta property="og:site_name" content="Celinki" />
+        <meta property="og:description" content="Micas de hidrogel cortadas al tamaño del modelo que elijas o en lámina sin corte. Entrega gratis en Pachuca y Mineral de la Reforma." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
         <meta property="og:title" content="Celinki · Hidrogel a mayoreo" />
-        <meta property="og:image" content="https://celinki.com/img/hidrogel/hd-vs-mate.jpg" />
+        <meta property="og:image" content="https://celinki.com/img/hidrogel/maquina.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
     </head>
