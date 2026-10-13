@@ -227,6 +227,12 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         </footer>
 
         <a class="flotante" href={hidrogelWa()} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
+        <script is:inline>
+            document.querySelectorAll('.k-foto img').forEach((i) => {
+                const ok = () => i.setAttribute('data-ok', '');
+                if (i.complete && i.naturalWidth) ok(); else { i.addEventListener('load', ok); i.addEventListener('error', ok); }
+            });
+        </script>
     </body>
 </html>
 
@@ -325,7 +331,11 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
 
     /* Fotos: fondo mientras cargan */
-    .k-foto { background: #f0f2f5; }
+    .k-foto { background: #f4f6f2 url('/img/cargando.svg') center / 56px no-repeat; animation: latido 1.4s ease-in-out infinite; }
+    .k-foto:has(img[data-ok]) { animation: none; background-image: none; background-color: #fff; }
+    .k-foto img { opacity: 0; transition: opacity 0.35s ease; }
+    .k-foto img[data-ok] { opacity: 1; }
+    @keyframes latido { 50% { background-color: #eef4e6; } }
 
     .condiciones { list-style: none; padding: 0; margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 10px; }
     .condiciones li { display: flex; align-items: center; gap: 8px; background: #1b1b1f; color: #fff; border-radius: 10px; padding: 8px 14px; font-size: 14px; }
@@ -348,5 +358,6 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     }
     @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
+        .k-foto { animation: none; }
         }
 </style>
