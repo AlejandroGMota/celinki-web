@@ -48,6 +48,23 @@ const cortadoras: Cortadora[] = [
     { modelo: 'KS-01 Max', corte: '21"', ancho: 293, peso: 7.7, img: 'ks-01-max', precio: 10690 },
     { modelo: 'KS-X7 Max', corte: '22"', ancho: 315, peso: 7.2, img: 'ks-x7-max', precio: 10690 },
 ];
+// Paquetes cerrados: suma de precios por lámina (sin descuento); entrega gratis incluida
+const precioDe = (n: string) => [...celular, ...tablet].find((m) => m.nombre === n)!.precio;
+const paquetes = [
+    { nombre: 'Arranque 50', para: 'Para empezar a vender', items: [[15, 'HD'], [15, 'Mate'], [20, 'Privacidad Mate']] as [number, string][] },
+    { nombre: 'Privacidad 30', para: 'La que más deja por pieza', items: [[30, 'Privacidad Mate']] as [number, string][] },
+    { nombre: 'Surtido 100', para: 'Para tienda con buena salida', items: [[40, 'HD'], [40, 'Mate'], [20, 'Privacidad Mate']] as [number, string][] },
+].map((p) => ({ ...p, piezas: p.items.reduce((a, [c]) => a + c, 0), total: p.items.reduce((a, [c, t]) => a + c * precioDe(t), 0) }));
+const preguntas = [
+    ['¿Qué es una mica de hidrogel?', 'Es un protector de pantalla flexible de TPU que cubre toda la pantalla, incluso orillas curvas, y se adhiere sin burbujas. A diferencia del cristal, no se estrella.'],
+    ['¿Qué diferencia hay entre HD, mate, Blue Ray y privacidad?', 'HD es transparente y de máxima claridad. Mate quita reflejos y huellas. Blue Ray filtra la luz azul de la pantalla. Privacidad oscurece la pantalla vista de lado; la 360 lo hace por los cuatro lados.'],
+    ['¿Me las cortan al tamaño de mi modelo?', 'Sí. Las cortamos con cortadora KASR al tamaño del modelo que elijas, al mismo precio que la lámina sin corte. Solo dinos el modelo de cada celular o tablet.'],
+    ['¿Cuál es el mínimo para la entrega gratis?', 'Desde 50 piezas, o 30 de privacidad, te las llevamos gratis en Pachuca y Mineral de la Reforma.'],
+    ['¿Puedo recoger mi pedido?', 'Sí, en GAMMA Accesorios para celular, Plaza Tere, Santa Gertrudis, de lunes a viernes de 1:00 a 5:00 pm.'],
+    ['¿Tienen para tablet?', 'Sí: láminas para tablet de 11 y 13 pulgadas en HD y mate, y de 13 pulgadas con privacidad HD.'],
+    ['¿Cuánto tarda una cortadora y cómo se aparta?', 'Las cortadoras KASR llegan en 2 a 3 semanas a la dirección que nos indiques. Se apartan con un anticipo mínimo del 60% e incluyen un paquete inicial de 50 láminas sin corte.'],
+    ['¿Cómo hago mi pedido?', 'Por WhatsApp al 771 868 2542: dinos tipo, cantidad y, si las quieres cortadas, el modelo de cada celular.'],
+] as [string, string][];
 const paquete = ['15 HD', '15 Mate', '10 Privacidad Mate', '5 Tablet 11" HD', '5 Tablet 11" Mate'];
 const pesos = (n: number) => n.toLocaleString('es-MX');
 
@@ -94,6 +111,11 @@ const schema = {
             },
         },
         {
+            '@type': 'FAQPage',
+            '@id': 'https://celinki.com/#preguntas',
+            mainEntity: preguntas.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+        },
+        {
             '@type': 'WebSite',
             '@id': 'https://celinki.com/#sitio',
             url: 'https://celinki.com/',
@@ -126,8 +148,10 @@ const schema = {
         <meta property="og:description" content="Micas de hidrogel cortadas al tamaño del modelo que elijas o en lámina sin corte. Entrega gratis en Pachuca y Mineral de la Reforma." />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-        <meta property="og:title" content="Celinki · Hidrogel a mayoreo" />
-        <meta property="og:image" content="https://celinki.com/img/hidrogel/maquina.jpg" />
+        <meta property="og:title" content="Celinki · Micas de hidrogel con entrega gratis en Pachuca y Mineral de la Reforma" />
+        <meta property="og:image" content="https://celinki.com/img/compartir.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
     </head>
@@ -137,6 +161,7 @@ const schema = {
                 <a class="logo" href="/" aria-label="Celinki, inicio"><img src="/favicon.svg" alt="" width="28" height="28" /><span>celinki</span></a>
                 <nav class="menu">
                     <a href="#celular">Micas</a>
+                    <a href="#paquetes">Paquetes</a>
                     <a href="#como-pedir">Cómo pedir</a>
                     <a href="#entregas">Entregas</a>
                     <a href="#cortadoras">Cortadoras</a>
@@ -197,6 +222,20 @@ const schema = {
                                 <p>{m.nota}</p>
                                 <p class="k-precio">${m.precio}<small> por lámina</small></p>
                             </div>
+                        </li>
+                    ))}
+                </ul>
+
+                <h3 class="k-flechas" id="paquetes">Paquetes</h3>
+                <ul class="paquetes">
+                    {paquetes.map((p) => (
+                        <li class="paq">
+                            <p class="paq-para">{p.para}</p>
+                            <h4>{p.nombre}</h4>
+                            <ul>{p.items.map(([c, t]) => <li><b>{c}</b> {t}</li>)}</ul>
+                            <p class="k-precio">${pesos(p.total)}<small> {p.piezas} láminas</small></p>
+                            <p class="paq-nota">🚚 Entrega gratis · cortadas a tu modelo o sin corte</p>
+                            <a class="btn btn-wa" href={wa(telHidrogel, `Hola Celinki, quiero el paquete ${p.nombre} (${p.items.map(([c, t]) => `${c} ${t}`).join(', ')}). ¿Cortadas a mi modelo o lámina sin corte?`)} target="_blank" rel="noopener">Pedir {p.nombre}</a>
                         </li>
                     ))}
                 </ul>
@@ -263,6 +302,16 @@ const schema = {
                 </ul>
                 <button type="button" class="ver-todas btn btn-borde" aria-expanded="false">Ver todas las cortadoras ({cortadoras.length})</button>
 
+
+                <h3 class="k-flechas" id="preguntas">Preguntas frecuentes</h3>
+                <div class="faq">
+                    {preguntas.map(([q, a]) => (
+                        <details>
+                            <summary>{q}</summary>
+                            <p>{a}</p>
+                        </details>
+                    ))}
+                </div>
 
                 <h3 class="k-flechas" id="visitanos">Recoge en tienda</h3>
                 <div class="k-card visita" style="--etq:#8dc63f">
@@ -424,6 +473,22 @@ const schema = {
     .condiciones b { color: var(--k-verde); }
     footer { padding: 32px 16px 96px; color: var(--k-gris); }
     footer a { color: var(--k-texto); }
+    .paquetes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .paq { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07); border-top: 8px solid var(--k-verde); display: flex; flex-direction: column; gap: 6px; }
+    .paq-para { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #6fa22c; }
+    .paq h4 { margin: 0; font-size: 22px; }
+    .paq ul { list-style: none; padding: 0; margin: 4px 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .paq ul li { background: #f4f9ec; border: 1px solid #dbe9c4; border-radius: 999px; padding: 3px 10px; font-size: 14px; }
+    .paq .k-precio { margin: 4px 0 0; font-weight: 800; font-size: 30px; }
+    .paq-nota { margin: 0; font-size: 13px; color: var(--k-gris); }
+    .paq .btn { margin-top: auto; text-align: center; }
+    .faq { display: grid; gap: 8px; }
+    .faq details { background: #fff; border-radius: 12px; padding: 14px 18px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05); }
+    .faq summary { cursor: pointer; font-weight: 800; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: #6fa22c; font-size: 22px; line-height: 1; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { margin: 10px 0 0; color: var(--k-gris); }
     .barra-wa { display: none; }
     .ver-todas { display: none; }
     .pie-marca, .pie-lugares { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
@@ -436,6 +501,7 @@ const schema = {
         .pasos { grid-template-columns: 1fr 1fr; }
         .pasos::before { display: none; }
         .visita { grid-template-columns: 1fr; }
+        .paquetes { grid-template-columns: 1fr; }
         .menu { display: none; }
         .barra-in { gap: 12px; }
         .logo { margin-right: auto; }
