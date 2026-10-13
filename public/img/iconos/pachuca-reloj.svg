@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pachuca, Reloj Monumental">
+  <!-- Reloj Monumental de Pachuca: torre con remate, carátula y base -->
+  <circle cx="32" cy="32" r="31" fill="#8dc63f"/>
+  <g fill="#fff">
+    <path d="M30.5 7h3l1 4h-5z"/>
+    <path d="M27 11h10l-1.5 5h-7z"/>
+    <rect x="25" y="16" width="14" height="30" rx="1.5"/>
+    <rect x="21" y="46" width="22" height="5" rx="1"/>
+    <rect x="18" y="51" width="28" height="4" rx="1"/>
+  </g>
+  <circle cx="32" cy="25" r="5" fill="#8dc63f"/>
+  <path d="M32 22.5V25l2 1.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <rect x="29" y="34" width="6" height="12" rx="3" fill="#8dc63f"/>
+</svg>
