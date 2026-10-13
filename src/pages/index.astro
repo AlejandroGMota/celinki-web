@@ -74,7 +74,8 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                     <div>
                         <p class="k-marca">CELINKI · <span>KASR</span></p>
                         <h1>Hidrogel a mayoreo</h1>
-                        <p class="k-sub">Láminas de hidrogel KASR a mayoreo para vendedores y técnicos con cortadora.</p>
+                        <p class="k-sub">Láminas de hidrogel KASR a mayoreo para vendedores y técnicos.</p>
+                        <p class="k-cortado">✂ ¿No tienes cortadora? <b>Te las vendemos cortadas a tu modelo, al mismo precio.</b></p>
                         <p class="k-zonas"><b>Entrega gratis</b> en <b>Pachuca</b> y <b>Mineral de la Reforma</b> desde <b>50 piezas</b> o <b>30 de privacidad</b></p>
                         <a class="btn btn-wa" href={hidrogelWa()} target="_blank" rel="noopener">Cotizar hidrogel · 771 868 2542</a>
                     </div>
@@ -138,7 +139,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
                 <h3 class="k-flechas">Cómo pedir</h3>
                 <ol class="k-pasos">
-                    <li><b>Mándanos tipo y cantidad</b><span>Por WhatsApp: «30 HD, 20 mate y 10 privacidad mate».</span></li>
+                    <li><b>Mándanos tipo y cantidad</b><span>Por WhatsApp: «30 HD, 20 mate y 10 privacidad mate». ¿Las quieres cortadas? Dinos los modelos de celular, mismo precio.</span></li>
                     <li><b>Te las llevamos gratis</b><span>En Pachuca y Mineral de la Reforma desde 50 piezas, o 30 de privacidad.</span></li>
                     <li><b>O recoge en tienda</b><span>En GAMMA, Plaza Tere, Santa Gertrudis.</span></li>
                 </ol>
@@ -185,6 +186,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .k-encabezado h1 { margin: 6px 0; font-family: 'Times New Roman', Georgia, serif; font-size: clamp(30px, 4.5vw, 46px); color: var(--k-verde); text-transform: uppercase; line-height: 1.05; }
     .k-sub { margin: 0 0 8px; color: var(--k-gris); }
     .k-zonas { margin: 0; }
+    .k-cortado { margin: 0 0 8px; padding: 8px 12px; border-radius: 10px; background: #f4f9ec; border: 1px dashed var(--k-verde); }
     .k-flechas { display: flex; align-items: center; gap: 12px; margin: 36px 0 14px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
     .k-flechas::before { content: '«'; color: #fff; background: var(--k-verde); border-radius: 6px; padding: 0 8px; font-size: 22px; line-height: 1.3; }
     .k-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
