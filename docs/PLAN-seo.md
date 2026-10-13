@@ -53,3 +53,12 @@ Fecha: 2026-10-13. Objetivo: aparecer cuando alguien busque (en Google, Google M
 - Guías sobre aparecer en ChatGPT, Gemini y Perplexity: techwyse.com, pristren.com, webscraft.org (2026).
 - Rastreadores de IA y robots.txt: help.otterly.ai, vydai.inweb.ua, growthmk.com.
 - Datos estructurados LocalBusiness y comercio: documentación de Google Search Central y Merchant Center.
+
+## Decisión 2026-10-13: dos negocios, dos perfiles
+- **GAMMA Accesorios para celular** (tienda en Plaza Tere): Perfil de Negocio ya creado, teléfono 771 103 0032. Se queda para accesorios.
+- **Celinki · Micas de hidrogel**: perfil nuevo y separado, teléfono **771 868 2542**, sitio `https://celinki.com`.
+  - Tipo: **negocio de servicio a domicilio (área de servicio)**, sin dirección pública o con Plaza Tere solo como punto de recolección; zonas: Pachuca de Soto y Mineral de la Reforma.
+  - Categoría sugerida: «Proveedor de accesorios para teléfonos celulares» / «Mayorista»; descripción centrada en hidrogel, corte a modelo y entrega gratis.
+  - Mismo nombre, teléfono y sitio en Facebook, Mercado Libre y directorios.
+- [ ] Crear el perfil Celinki en Google Business (requiere aceptar condiciones y verificar con video).
+- [ ] En el sitio, los datos estructurados ya son de Celinki (no de GAMMA) con el 771 868 2542.
