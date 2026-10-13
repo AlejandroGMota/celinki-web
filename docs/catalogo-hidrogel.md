@@ -19,7 +19,8 @@ Precios por pieza (MXN) dados el 2026-10-12. Hoja de KASR según `Accesorios-com
 |---|---|---|---|
 | Tablet 11" HD | $32 | NT70 | Sí: serie «Lion» para tablets y laptops 11" |
 | Tablet 11" Matte | $32 | NT71 | Sí: misma ficha que NT70 |
-| Tablet 13" | $45 | HD-25 (mate: AG-26), 225×320 mm | Sí |
+| Tablet 13" HD | $45 | HD-25, 225×320 mm | Sí |
+| Tablet 13" Mate | $45 | AG-26 | Sí: ficha «Sports 13 inch» HD-25/AG-26 |
 | Tablet 13" Privacidad HD | $95 | Lámina blanca sin diseño | Ilustración propia (`public/img/hidrogel/tablet-13-privacidad.svg`) |
 
 ## Selección por tipo (`docs/referencias/kasr/seleccion/`)
