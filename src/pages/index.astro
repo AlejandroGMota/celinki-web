@@ -23,6 +23,32 @@ const tablet: Mica[] = [
     { nombre: 'Tablet 13"', precio: 45, nota: 'Transparente, alta definición', color: '#8dc63f', img: '/img/hidrogel/tablet-13.jpg' },
     { nombre: 'Tablet 13" Privacidad HD', precio: 95, nota: 'Privacidad con alta definición', color: '#1b1b1f', img: '/img/hidrogel/tablet-13-privacidad.svg' },
 ];
+
+// Cortadoras KASR: precio del PDF de KASR + $2,500, ya como precio final
+type Cortadora = { modelo: string; corte: string; ancho: number; peso: number; img: string; precio: number };
+const cortadoras: Cortadora[] = [
+    { modelo: 'KS-X180T', corte: '10"', ancho: 180, peso: 3.5, img: 'ks-x180t', precio: 9520 },
+    { modelo: 'KS-11', corte: '12"', ancho: 196, peso: 4.3, img: 'ks-11', precio: 9610 },
+    { modelo: 'KS-X5', corte: '15"', ancho: 230, peso: 6.5, img: 'ks-x5', precio: 9880 },
+    { modelo: 'KS-F5 Mini', corte: '14"', ancho: 215, peso: 5.8, img: 'ks-f5-mini', precio: 10060 },
+    { modelo: 'KS-230', corte: '17"', ancho: 265, peso: 5.7, img: 'ks-230', precio: 10060 },
+    { modelo: 'KS-25 Mini', corte: '14"', ancho: 215, peso: 6, img: 'ks-25-mini', precio: 10240 },
+    { modelo: 'KS-F5', corte: '17"', ancho: 265, peso: 6.8, img: 'ks-f5', precio: 10240 },
+    { modelo: 'KS-08', corte: '14"', ancho: 213, peso: 6.9, img: 'ks-08', precio: 10330 },
+    { modelo: 'KS-05', corte: '14"', ancho: 213, peso: 6.3, img: 'ks-05', precio: 10330 },
+    { modelo: 'KS-01', corte: '14"', ancho: 213, peso: 6.6, img: 'ks-01', precio: 10330 },
+    { modelo: 'KS-X7 Mini', corte: '14"', ancho: 215, peso: 5.6, img: 'ks-x7-mini', precio: 10330 },
+    { modelo: 'KS-25', corte: '17"', ancho: 265, peso: 6.7, img: 'ks-25', precio: 10420 },
+    { modelo: 'KS-F5 Max', corte: '22"', ancho: 315, peso: 7.2, img: 'ks-f5-max', precio: 10420 },
+    { modelo: 'KS-X7', corte: '17"', ancho: 265, peso: 6.6, img: 'ks-x7', precio: 10510 },
+    { modelo: 'KS-25 Max', corte: '22"', ancho: 315, peso: 7.6, img: 'ks-25-max', precio: 10600 },
+    { modelo: 'KS-08 Max', corte: '21"', ancho: 293, peso: 7.4, img: 'ks-08-max', precio: 10690 },
+    { modelo: 'KS-05 Max', corte: '21"', ancho: 293, peso: 7.9, img: 'ks-05-max', precio: 10690 },
+    { modelo: 'KS-01 Max', corte: '21"', ancho: 293, peso: 7.7, img: 'ks-01-max', precio: 10690 },
+    { modelo: 'KS-X7 Max', corte: '22"', ancho: 315, peso: 7.2, img: 'ks-x7-max', precio: 10690 },
+];
+const paquete = ['15 HD', '15 Mate', '10 Privacidad Mate', '5 Tablet 11" HD', '5 Tablet 11" Mate'];
+const pesos = (n: number) => n.toLocaleString('es-MX');
 ---
 
 <!doctype html>
@@ -33,7 +59,7 @@ const tablet: Mica[] = [
         <title>Celinki · Micas de hidrogel</title>
         <meta
             name="description"
-            content="Micas de hidrogel cortadas a la medida de tu celular o tablet: HD, mate, Blue Ray y privacidad. Menudeo y mayoreo, con entrega en Pachuca y Mineral de la Reforma."
+            content="Micas de hidrogel cortadas a la medida de tu celular o tablet: HD, mate, Blue Ray y privacidad. Menudeo y mayoreo, con entrega en Pachuca y Mineral de la Reforma. Cortadoras de hidrogel KASR con 50 micas de regalo."
         />
         <link rel="canonical" href="https://celinki.com/" />
         <meta property="og:title" content="Celinki · Micas de hidrogel" />
@@ -84,6 +110,27 @@ const tablet: Mica[] = [
                                 <p>{m.nota}</p>
                                 <p class="k-precio">${m.precio}<small> por pieza</small></p>
                                 <a href={hidrogelWa(m.nombre)} target="_blank" rel="noopener">Pedir</a>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+
+                <h3 class="k-flechas" id="cortadoras">Cortadoras de hidrogel KASR</h3>
+                <div class="k-paquete">
+                    <p><b>Arma tu propio negocio de micas.</b> Cada cortadora incluye un <b>paquete inicial de 50 micas</b>:</p>
+                    <ul>{paquete.map((x) => <li>{x}</li>)}</ul>
+                    <p class="k-gris">Con espátulas, tapete, cuchillas, cable y eliminador. Corta micas para celular, tablet, laptop, smartwatch, cámara, consola y más. Conexión WiFi/Bluetooth y modelos en la nube.</p>
+                </div>
+                <ul class="k-grid">
+                    {cortadoras.map((c) => (
+                        <li class="k-card" style="--etq:#8dc63f">
+                            <div class="k-foto k-foto-ancha"><img src={`/img/cortadoras/${c.img}.jpg`} alt={`Cortadora de hidrogel KASR ${c.modelo}`} loading="lazy" /></div>
+                            <div class="k-info">
+                                <h4>{c.modelo} <span class="k-corte">Corte {c.corte}</span></h4>
+                                <p>Ancho de corte {c.ancho} mm · {c.peso} kg</p>
+                                <p>+ 50 micas de regalo</p>
+                                <p class="k-precio">${pesos(c.precio)}<small> precio final</small></p>
+                                <a href={wa(telHidrogel, `Hola Celinki, me interesa la cortadora KASR ${c.modelo}`)} target="_blank" rel="noopener">Pedir</a>
                             </div>
                         </li>
                     ))}
@@ -151,6 +198,13 @@ const tablet: Mica[] = [
     .k-info .k-precio { color: var(--k-texto); font-weight: 800; font-size: 26px; margin-top: 6px; }
     .k-precio small { font-size: 13px; font-weight: 600; color: var(--k-gris); }
     .k-info a { margin-top: auto; align-self: flex-start; padding: 6px 14px; border-radius: 8px; background: var(--wa); color: #052e16; font-weight: 800; text-decoration: none; }
+    .k-foto-ancha { aspect-ratio: 16 / 9; }
+    .k-corte { display: inline-block; margin-left: 4px; padding: 1px 8px; border-radius: 6px; background: #1b1b1f; color: #fff; font-size: 12px; vertical-align: middle; }
+    .k-paquete { background: #fff; border-radius: 14px; padding: 18px 20px; margin-bottom: 14px; border-left: 8px solid var(--k-verde); box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); }
+    .k-paquete p { margin: 0 0 8px; }
+    .k-paquete ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 10px; }
+    .k-paquete li { border: 1px solid #dbe3c8; background: #f4f9ec; border-radius: 999px; padding: 4px 12px; font-weight: 700; }
+    .k-gris { color: var(--k-gris); font-size: 14px; }
     .k-pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .k-pasos li { counter-increment: paso; background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); display: flex; flex-direction: column; gap: 4px; }
     .k-pasos li::before { content: counter(paso); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--k-verde); color: #fff; font-weight: 800; }

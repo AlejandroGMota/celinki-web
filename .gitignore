@@ -3,3 +3,5 @@ dist/
 .astro/
 .DS_Store
 docs/referencias/
+Cortadoras_KASR_precios_MXN.pdf
+*.pdf
