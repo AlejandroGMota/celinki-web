@@ -95,7 +95,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                             <span class="he-ico">🚚</span>
                             <div>
                                 <b>Entrega gratis</b>
-                                <p class="he-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca <img src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma</p>
+                                <p class="he-lugares"><span><img src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca</span> <span><img src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma</span></p>
                                 <small>Desde 50 piezas o 30 de privacidad</small>
                             </div>
                         </div>
@@ -342,6 +342,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .he-ico { font-size: 34px; }
     .hero-entrega b { font-size: 20px; color: #3f6b12; }
     .he-lugares { margin: 8px 0 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 800; }
+    .he-lugares span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
     .he-lugares img { width: 26px; height: 26px; }
     .hero-entrega small { color: var(--k-gris); }
     .hero-botones { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 0; }
