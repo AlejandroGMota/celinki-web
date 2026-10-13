@@ -103,7 +103,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                             <a class="btn btn-borde" href="#como-pedir">Cómo pedir</a>
                         </div>
                     </div>
-                    <img src="/img/hidrogel/maquina.jpg" alt="Cortadora KASR cortando micas de hidrogel al tamaño de cada modelo" width="1000" height="796" />
+                    <img src="/img/hidrogel/maquina.jpg" alt="Cortadora KASR cortando micas de hidrogel al tamaño de cada modelo" width="1000" height="796" fetchpriority="high" class="hero-img" />
                 </div>
 
 
@@ -186,7 +186,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                     <p class="k-gris">Con espátulas, tapete, cuchillas, cable y eliminador. Corta micas para celular, tablet, laptop, smartwatch, cámara, consola y más. Conexión WiFi/Bluetooth y modelos en la nube.</p>
                     <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero cotizar una cortadora KASR. Modelo:')} target="_blank" rel="noopener">Cotizar cortadora por WhatsApp</a>
                 </div>
-                <ul class="k-grid">
+                <ul class="k-grid cortadoras-lista">
                     {cortadoras.map((c) => (
                         <li class="k-card" style="--etq:#8dc63f">
                             <div class="k-foto k-foto-ancha"><img src={`/img/cortadoras/${c.img}.jpg`} alt={`Cortadora de hidrogel KASR ${c.modelo}`} loading="lazy" /></div>
@@ -199,6 +199,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                         </li>
                     ))}
                 </ul>
+                <button type="button" class="ver-todas btn btn-borde" aria-expanded="false">Ver todas las cortadoras ({cortadoras.length})</button>
 
 
                 <h3 class="k-flechas" id="visitanos">Recoge en tienda</h3>
@@ -223,11 +224,29 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         </main>
 
         <footer class="wrap">
-            <p>Celinki · Hidrogel a mayoreo · WhatsApp <a href={hidrogelWa()} target="_blank" rel="noopener">771 868 2542</a></p>
+            <p class="pie-marca"><img src="/favicon.svg" alt="" width="20" height="20" /> <b>celinki</b> · Micas de hidrogel</p>
+            <p class="pie-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca <img src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma · entrega gratis</p>
+            <p>WhatsApp <a href={hidrogelWa()} target="_blank" rel="noopener">771 868 2542</a> · Tienda: lunes a viernes, 1 a 5 pm</p>
         </footer>
 
-        <a class="flotante" href={hidrogelWa()} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
+        <a class="barra-wa" href={hidrogelWa()} target="_blank" rel="noopener" aria-label="Pedir por WhatsApp al 771 868 2542">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+            <span><b>Pedir por WhatsApp</b> 771 868 2542</span>
+        </a>
         <script is:inline>
+            (() => {
+                const barra = document.querySelector('.barra-wa');
+                const hero = document.querySelector('.k-encabezado');
+                if (barra && hero && 'IntersectionObserver' in window) {
+                    new IntersectionObserver(([e]) => barra.classList.toggle('visible', !e.isIntersecting), { threshold: 0.15 }).observe(hero);
+                } else if (barra) barra.classList.add('visible');
+                const b = document.querySelector('.ver-todas'), l = document.querySelector('.cortadoras-lista');
+                if (b && l) b.addEventListener('click', () => {
+                    const abierta = l.classList.toggle('abierta');
+                    b.setAttribute('aria-expanded', abierta);
+                    b.textContent = abierta ? 'Ver menos' : b.dataset.txt;
+                }), (b.dataset.txt = b.textContent);
+            })();
             document.querySelectorAll('.k-foto img').forEach((i) => {
                 const ok = () => i.setAttribute('data-ok', '');
                 if (i.complete && i.naturalWidth) ok(); else { i.addEventListener('load', ok); i.addEventListener('error', ok); }
@@ -342,22 +361,78 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .condiciones b { color: var(--k-verde); }
     footer { padding: 32px 16px 96px; color: var(--k-gris); }
     footer a { color: var(--k-texto); }
-    .flotante { display: none; position: fixed; right: 16px; bottom: 16px; padding: 12px 18px; border-radius: 999px; background: var(--wa); color: #052e16; font-weight: 800; text-decoration: none; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); z-index: 10; }
+    .barra-wa { display: none; }
+    .ver-todas { display: none; }
+    .pie-marca, .pie-lugares { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .pie-lugares img { width: 20px; height: 20px; }
+    footer p { margin: 6px 0; }
 
     @media (max-width: 860px) {
-        .flotante { display: block; }
         .k-encabezado { grid-template-columns: 1fr; }
-            .pasos { grid-template-columns: 1fr 1fr; }
+        .pasos { grid-template-columns: 1fr 1fr; }
         .pasos::before { display: none; }
         .visita { grid-template-columns: 1fr; }
         .menu { display: none; }
+        .barra-in { gap: 12px; }
+        .logo { margin-right: auto; }
+        .barra-wa { display: flex; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 10px 16px; border-radius: 14px; background: var(--wa); color: #052e16; text-decoration: none; font-size: 15px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22); transform: translateY(140%); transition: transform 0.3s ease; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+        .barra-wa.visible { transform: none; }
+        .barra-wa span b { margin-right: 4px; }
+        footer { padding-bottom: 110px; }
     }
-    @media (max-width: 520px) {
-        .pasos { grid-template-columns: 1fr; }
-            .flotante { left: 16px; right: 16px; text-align: center; }
+    @media (max-width: 600px) {
+        .wrap { padding: 0 14px; }
+        .barra-in { height: 54px; }
+        .logo { font-size: 21px; }
+        html { scroll-padding-top: 64px; }
+        .kasr { padding-top: 14px; }
+        /* hero */
+        .k-encabezado { gap: 18px; padding: 22px 18px 18px; border-left: 0; border-top: 8px solid var(--k-verde); border-radius: 14px; }
+        .k-encabezado h1 { font-size: 34px; margin: 0; }
+        .hero-sub { font-size: 16px; margin: 8px 0 16px; max-width: none; }
+        .hero-entrega { padding: 14px; gap: 12px; margin-bottom: 16px; }
+        .he-ico { font-size: 28px; }
+        .hero-entrega b { font-size: 18px; }
+        .he-lugares { font-size: 14px; }
+        .he-lugares img { width: 22px; height: 22px; }
+        .hero-botones { flex-direction: column; gap: 10px; }
+        .hero-botones .btn { width: 100%; text-align: center; min-height: 48px; }
+        .hero-img { max-height: 220px; width: 100%; object-fit: contain; }
+        /* micas en 2 columnas */
+        .k-flechas { margin: 26px 0 10px; font-size: 17px; }
+        .k-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+        .k-card { border-radius: 12px; border-top-width: 6px; }
+        .k-info { padding: 8px 10px 12px; }
+        .k-info h4 { font-size: 15px; line-height: 1.2; }
+        .k-info p { font-size: 12px; line-height: 1.35; }
+        .k-info .k-precio { font-size: 21px; margin-top: 4px; }
+        .k-precio small { font-size: 11px; }
+        /* cómo pedir: tarjetas horizontales */
+        .pasos { grid-template-columns: 1fr; gap: 10px; }
+        .pasos li { display: grid; grid-template-columns: 112px 1fr; grid-template-rows: auto auto 1fr; column-gap: 12px; row-gap: 2px; padding: 10px; align-items: start; }
+        .pasos li > img { grid-row: 1 / 4; width: 112px; border-radius: 10px; }
+        .paso-n { grid-column: 2; margin: 0; width: 26px; height: 26px; font-size: 13px; border: 0; }
+        .pasos li b { grid-column: 2; font-size: 15px; line-height: 1.25; }
+        .pasos li > span:last-child { grid-column: 2; font-size: 13px; }
+        .pasos li:hover { transform: none; }
+        .pasos-cta { flex-direction: column; }
+        .pasos-cta .btn { width: 100%; text-align: center; font-size: 16px; }
+        /* cortadoras */
+        .k-paquete { padding: 14px; border-left-width: 6px; }
+        .k-paquete li { font-size: 13px; padding: 3px 10px; }
+        .condiciones li { font-size: 13px; width: 100%; }
+        .k-paquete .btn { width: 100%; text-align: center; }
+        .cortadoras-lista { grid-template-columns: 1fr; }
+        .cortadoras-lista:not(.abierta) > li:nth-child(n + 5) { display: none; }
+        .ver-todas { display: block; width: 100%; margin-top: 12px; font: inherit; font-weight: 800; cursor: pointer; }
+        /* tienda */
+        .visita-info { padding: 16px; }
+        .visita-mapa { min-height: 220px; height: 220px; }
+        .visita-botones .btn { width: 100%; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
         .k-foto { animation: none; }
-        }
+        .hero-entrega, .pasos li, .barra-wa { animation: none; transition: none; }
+    }
 </style>
