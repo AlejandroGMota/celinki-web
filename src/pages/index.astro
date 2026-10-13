@@ -87,32 +87,23 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
             <div class="wrap">
                 <div class="k-encabezado">
                     <div>
-                        <p class="k-marca">CELINKI · <span>HIDROGEL KASR</span></p>
-                        <h1>Micas de hidrogel <span>cortadas al tamaño del modelo que elijas</span></h1>
-                        <p class="k-sub">O lámina sin corte a mayoreo para vendedores y técnicos. <b>Mismo precio.</b></p>
-                        <div class="sellos">
-                            <p class="sello sello-corte"><span class="sello-ico">✂</span><span><b>Cortada al tamaño del modelo que elijas</b>mismo precio que la lámina sin corte</span></p>
-                            <p class="sello sello-entrega"><span class="sello-ico">🚚</span><span><b>Entrega gratis</b>desde 50 piezas o 30 de privacidad</span><span class="sello-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="Pachuca" /><img src="/img/iconos/mineral-castillete.svg" alt="Mineral de la Reforma" /></span></p>
+                        <h1>Micas de hidrogel</h1>
+                        <p class="hero-sub">Cortadas al tamaño del modelo que elijas o en lámina sin corte. <b>Mismo precio.</b></p>
+                        <div id="entregas" class="hero-entrega">
+                            <span class="he-ico">🚚</span>
+                            <div>
+                                <b>Entrega gratis</b>
+                                <p class="he-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca <img src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma</p>
+                                <small>Desde 50 piezas o 30 de privacidad · o recoge en GAMMA, Plaza Tere</small>
+                            </div>
                         </div>
                         <div class="hero-botones">
-                            <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas al tamaño de mis modelos. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas a mi modelo</a>
-                            <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel sin corte a mayoreo:')} target="_blank" rel="noopener">Pedir lámina sin corte</a>
+                            <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas al tamaño de mis modelos. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Cortadas a mi modelo</a>
+                            <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel sin corte a mayoreo:')} target="_blank" rel="noopener">Lámina sin corte</a>
                         </div>
                     </div>
-                    <img src="/img/hidrogel/maquina.jpg" alt="Cortadora KASR cortando micas de hidrogel a la medida" />
+                    <img src="/img/hidrogel/maquina.jpg" alt="Cortadora KASR cortando micas de hidrogel al tamaño de cada modelo" width="1000" height="796" />
                 </div>
-
-                <section id="entregas" class="entregas">
-                    <div class="entregas-txt">
-                        <h2>Entrega gratis</h2>
-                        <p>Desde <b>50 piezas</b> o <b>30 de privacidad</b>.</p>
-                    </div>
-                    <ul class="lugares">
-                        <li><img src="/img/iconos/pachuca-reloj.svg" alt="" /><span><b>Pachuca</b>Te la llevamos</span></li>
-                        <li><img src="/img/iconos/mineral-castillete.svg" alt="" /><span><b>Mineral de la Reforma</b>Te la llevamos</span></li>
-                        <li><img src="/favicon.svg" alt="" class="lugar-tienda" /><span><b>GAMMA, Plaza Tere</b>O recoge en tienda</span></li>
-                    </ul>
-                </section>
 
                 <div class="selector" role="group" aria-label="¿Cómo las quieres?">
                     <span>¿Cómo las quieres?</span>
@@ -348,31 +339,17 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
     /* Hero */
     .kasr { padding-top: 28px; }
-    .k-encabezado h1 span { display: block; color: var(--k-texto); }
-    .sellos { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 4px; }
-    .sello { margin: 0; display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 14px; animation: entrar 0.6s ease both; }
-    .sello b { display: block; font-size: 16px; }
-    .sello span { font-size: 13px; line-height: 1.25; }
-    .sello .sello-ico { font-size: 24px; }
-    .sello-corte { background: #1b1b1f; color: #fff; }
-    .sello-corte .sello-ico { color: var(--k-verde); }
-    .sello-entrega { background: var(--k-verde); color: #1b1b1f; animation-delay: 0.15s; }
-    .sello-lugares { display: flex; gap: 4px; }
-    .sello-lugares img { width: 26px; height: 26px; border: 2px solid #fff; border-radius: 50%; }
+    .hero-sub { font-size: 19px; margin: 6px 0 16px; color: var(--k-texto); max-width: 32ch; }
+    .hero-entrega { display: flex; gap: 14px; align-items: center; padding: 14px 18px; border-radius: 14px; background: #f4f9ec; border: 2px solid var(--k-verde); animation: entrar 0.6s ease both; }
+    .he-ico { font-size: 34px; }
+    .hero-entrega b { font-size: 20px; color: #3f6b12; }
+    .he-lugares { margin: 4px 0 2px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 800; }
+    .he-lugares img { width: 26px; height: 26px; }
+    .hero-entrega small { color: var(--k-gris); }
     .hero-botones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
     .hero-botones .btn { margin-top: 0; font-size: 16px; padding: 13px 22px; }
     @keyframes entrar { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: none; } }
 
-    /* Entregas */
-    .entregas { display: grid; grid-template-columns: 0.8fr 2fr; gap: 20px; align-items: center; margin-top: 18px; padding: 20px 24px; border-radius: 16px; background: #f4f9ec; border: 2px solid #dbe9c4; }
-    .entregas h2 { margin: 0; font-family: 'Times New Roman', Georgia, serif; text-transform: uppercase; color: #6fa22c; font-size: 30px; line-height: 1; }
-    .entregas p { margin: 6px 0 0; }
-    .lugares { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .lugares li { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 12px; padding: 10px 12px; }
-    .lugares img { width: 42px; height: 42px; flex: none; }
-    .lugares .lugar-tienda { padding: 6px; background: #f5f6f8; border-radius: 50%; }
-    .lugares span { font-size: 13px; color: var(--k-gris); }
-    .lugares span b { display: block; color: var(--k-texto); font-size: 15px; }
 
     /* Selector cortadas / lámina */
     .selector { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 28px 0 -12px; }
@@ -381,10 +358,8 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .sel.activo { background: #1b1b1f; color: #fff; }
     .selector small { color: #6fa22c; font-weight: 800; }
 
-    /* Fotos: fondo mientras cargan; cuadrícula centrada sin huecos */
+    /* Fotos: fondo mientras cargan */
     .k-foto { background: #f0f2f5; }
-    .k-grid { display: flex; flex-wrap: wrap; justify-content: center; }
-    .k-grid > .k-card { flex: 0 1 calc(25% - 11px); min-width: 220px; }
 
     .condiciones { list-style: none; padding: 0; margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 10px; }
     .condiciones li { display: flex; align-items: center; gap: 8px; background: #1b1b1f; color: #fff; border-radius: 10px; padding: 8px 14px; font-size: 14px; }
@@ -399,15 +374,11 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         .pasos::before { display: none; }
         .visita { grid-template-columns: 1fr; }
         .menu { display: none; }
-        .entregas { grid-template-columns: 1fr; }
-        .lugares { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
         .pasos { grid-template-columns: 1fr; }
-        .k-grid > .k-card { flex-basis: 100%; }
-        .flotante { left: 16px; right: 16px; text-align: center; }
+            .flotante { left: 16px; right: 16px; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
-        .sello, .pasos li { animation: none; transition: none; }
-    }
+        }
 </style>
