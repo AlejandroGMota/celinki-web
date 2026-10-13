@@ -1,0 +1,158 @@
+---
+const whatsapp = '527711030032';
+const wa = (texto: string) => `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+
+const pedido = wa('Hola Celinki, quiero hacer un pedido');
+const mayoreo = wa('Hola Celinki, quiero cotizar micas de hidrogel a mayoreo');
+const mapa = 'https://www.google.com/maps/search/?api=1&query=Plaza+Tere+Santa+Gertrudis+Hidalgo';
+
+const productos = [
+    { nombre: 'Fundas', detalle: 'Para los modelos más recientes' },
+    { nombre: 'Micas de cristal', detalle: 'Normales y de privacidad' },
+    { nombre: 'Micas de hidrogel', detalle: 'HD, Matte, privacidad y Blue Ray, colocadas al momento' },
+    { nombre: 'Cargadores y cables', detalle: 'USB-C, Lightning y más' },
+    { nombre: 'Adaptadores', detalle: 'Y todo tipo de accesorios de tecnología' },
+    { nombre: 'Tablets', detalle: 'Micas de hidrogel para tablet' },
+];
+
+const hidrogel = ['HD', 'Matte', 'Privacidad HD', 'Privacidad Matte', 'Privacidad 360', 'Blue Ray', 'Tablet'];
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Celinki · Accesorios para celular</title>
+        <meta
+            name="description"
+            content="Accesorios para celular en Santa Gertrudis, Hidalgo. Fundas, micas de cristal e hidrogel, cargadores y adaptadores. Micas de hidrogel a mayoreo con entrega en Pachuca y Mineral de la Reforma."
+        />
+        <link rel="canonical" href="https://celinki.com/" />
+    </head>
+    <body>
+        <header class="hero">
+            <div class="wrap">
+                <p class="marca">Celinki</p>
+                <h1>Accesorios para celular</h1>
+                <p class="lema">Fundas, micas y todo lo que tu equipo necesita. Pide por WhatsApp o visítanos en Plaza Tere.</p>
+                <a class="btn" href={pedido} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            </div>
+        </header>
+
+        <main class="wrap">
+            <section>
+                <h2>Qué tenemos</h2>
+                <ul class="grid">
+                    {productos.map((p) => (
+                        <li class="card">
+                            <h3>{p.nombre}</h3>
+                            <p>{p.detalle}</p>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+
+            <section class="mayoreo">
+                <h2>Micas de hidrogel a mayoreo</h2>
+                <p>Para tiendas de celulares y técnicos. Cortadas por modelo, listas para colocar.</p>
+                <ul class="chips">
+                    {hidrogel.map((t) => <li>{t}</li>)}
+                </ul>
+                <p><strong>Entrega en Pachuca, Mineral de la Reforma y alrededores.</strong></p>
+                <a class="btn" href={mayoreo} target="_blank" rel="noopener">Cotizar mayoreo</a>
+            </section>
+
+            <section>
+                <h2>Visítanos</h2>
+                <div class="card visita">
+                    <h3>GAMMA Accesorios para celular</h3>
+                    <p>Plaza Tere, A El Huixmí, 42111 Santa Gertrudis, Hgo.</p>
+                    <p>Lunes a viernes, 1:00 a 5:00 pm</p>
+                    <p><a href={mapa} target="_blank" rel="noopener">Ver en Google Maps</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="wrap">
+            <p>Celinki · WhatsApp <a href={pedido} target="_blank" rel="noopener">771 103 0032</a></p>
+        </footer>
+
+        <a class="flotante" href={pedido} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --fondo: #fafaf9;
+        --texto: #1c1917;
+        --suave: #57534e;
+        --borde: #e7e5e4;
+        --tarjeta: #ffffff;
+        --acento: #0f766e;
+        --wa: #25d366;
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --fondo: #1c1917;
+            --texto: #f5f5f4;
+            --suave: #a8a29e;
+            --borde: #44403c;
+            --tarjeta: #292524;
+            --acento: #2dd4bf;
+        }
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        background: var(--fondo);
+        color: var(--texto);
+        line-height: 1.5;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--borde); }
+    .marca { margin: 0; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--acento); }
+    h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 8px 0; line-height: 1.1; }
+    .lema { color: var(--suave); max-width: 40ch; font-size: 1.1rem; }
+    h2 { margin-top: 48px; }
+    h3 { margin: 0 0 4px; font-size: 1.05rem; }
+    .btn {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        background: var(--wa);
+        color: #052e16;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .grid {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 12px;
+    }
+    .card { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 12px; padding: 16px; }
+    .card p { margin: 0; color: var(--suave); }
+    .visita p { margin: 4px 0; }
+    .mayoreo { margin-top: 48px; padding: 24px; border-radius: 12px; border: 2px solid var(--acento); }
+    .mayoreo h2 { margin-top: 0; }
+    .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .chips li { border: 1px solid var(--borde); border-radius: 999px; padding: 4px 12px; background: var(--tarjeta); }
+    a { color: var(--acento); }
+    footer { margin: 64px auto 96px; color: var(--suave); }
+    .flotante {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: var(--wa);
+        color: #052e16;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+</style>
