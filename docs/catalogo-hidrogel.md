@@ -42,7 +42,7 @@ Videos (`docs/referencias/kasr/videos/`): HD NT68, rollo, tablet y uno de la tie
 
 `docs/referencias/kasr/alibaba/1601384278013-tablet-clear-matte/`: 38 imágenes más (tablet y fichas «Sports/Lion/Repair» con precio por pieza).
 
-Otros productos de la tienda KASR (`mankadun.en.alibaba.com`) por si hacen falta más fotos:
+Otros productos de la tienda KASR (`mankadun.en.alibaba.com`) por si hacen falta más fotos (Alibaba pide CAPTCHA a veces; se resuelve a mano en la pestaña):
 - 1601609651929 High-Definition Soft Hydrogel
 - 1601384278013 Hydrogel TPH/TPU Film Clear Matte
 - 1601264768466 KingKong High Smooth
@@ -53,3 +53,19 @@ Otros productos de la tienda KASR (`mankadun.en.alibaba.com`) por si hacen falta
 - 1601524176745 Mobile Phone Protection Films
 
 Tablet 13" reducida: no se publica (no relevante).
+
+## Imágenes publicadas en el sitio (`public/img/hidrogel/`)
+| Tarjeta | Archivo | Origen |
+|---|---|---|
+| HD | `hd.jpg` | Caja KASR NT68 |
+| Mate | `mate.jpg` | Hojas KASR NT69 |
+| Blue Ray | `blue-ray.svg` | Ilustración propia de la lámina LG-09 (KASR no tiene foto sola) |
+| Privacidad Mate | `privacidad-mate.jpg` | Hoja KASR AG-12 (producto 1600554918937) |
+| Privacidad HD | `privacidad-hd.jpg` | KASR HD-09 |
+| Privacidad 360 | `privacidad-360.jpg` | KASR AG-13 |
+| Tablet 11" HD / Mate | `tablet-11-hd.jpg` / `tablet-11-mate.jpg` | Ficha «Lion» NT-70/NT-71 recortada + tablet; sin precio de proveedor |
+| Tablet 13" HD / Mate | `tablet-13-hd.jpg` / `tablet-13-mate.jpg` | Ficha «Sports» HD-25/AG-26 + tablet; sin precio de proveedor |
+| Tablet 13" Privacidad HD | `tablet-13-privacidad.svg` (y `.jpg` para el volante) | Ilustración propia (lámina blanca sin diseño) |
+| Encabezado | `maquina.jpg` | Cortadora KASR, recortada sin la barra azul |
+
+Regla: el texto impreso en las micas (en inglés) **no se traduce**, porque es el diseño real del producto.

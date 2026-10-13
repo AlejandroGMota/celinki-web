@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240">
+  <!-- A · Celular con la mica despegándose en la esquina -->
+  <rect width="640" height="240" fill="#fff"/>
+  <g transform="translate(40 30)">
+    <rect x="0" y="0" width="104" height="180" rx="22" fill="#1b1b1f"/>
+    <rect x="9" y="9" width="86" height="162" rx="15" fill="#2a2e35"/>
+    <!-- mica verde con la esquina doblada -->
+    <path d="M9 24 a15 15 0 0 1 15 -15 H64 L95 40 V156 a15 15 0 0 1 -15 15 H24 a15 15 0 0 1 -15 -15 Z" fill="#8dc63f" opacity=".92"/>
+    <path d="M64 9 L95 40 L70 44 Z" fill="#cfe9a5"/>
+    <path d="M64 9 L70 44 L95 40" fill="none" stroke="#6fa22c" stroke-width="2"/>
+    <rect x="40" y="16" width="24" height="5" rx="2.5" fill="#1b1b1f" opacity=".5"/>
+  </g>
+  <text x="172" y="150" font-family="Avenir Next, Montserrat, sans-serif" font-weight="800" font-size="92" letter-spacing="-2" fill="#1b1b1f">celinki</text>
+  <text x="176" y="188" font-family="Avenir Next, Montserrat, sans-serif" font-weight="600" font-size="20" letter-spacing="7" fill="#8dc63f">MICAS DE HIDROGEL</text>
+</svg>

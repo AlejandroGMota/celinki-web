@@ -1,5 +1,7 @@
 # celinki.com — checklist de contenido
 
+> Actualizado 2026-10-13. Con el **Plan A (solo hidrogel)**, las secciones 1–4 de accesorios (portada de lona, fundas, micas de cristal, cargadores 1Hora) están **en pausa**. Hecho de la sección 5 y 9: catálogo de hidrogel por tipo con su color KASR, cómo pedir ilustrado, zonas de entrega con íconos, cortadoras, preguntas frecuentes, recoger en tienda, animaciones suaves y respeto a «reducir movimiento». Pendiente: video de la cortadora, parallax, carruseles, comparador antes/después, testimonios, fotos reales, WebP.
+
 Qué podríamos poner en el sitio, por sección. Marca lo que sí va y ajusta. Fecha: 2026-10-12.
 
 ## Estilos

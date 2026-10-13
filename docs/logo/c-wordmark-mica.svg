@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240">
+  <!-- C · Solo letras: el punto de la «i» es una mica con la esquina doblada -->
+  <rect width="640" height="240" fill="#1b1b1f"/>
+  <text x="60" y="160" font-family="Avenir Next, Montserrat, sans-serif" font-weight="800" font-size="120" letter-spacing="-3" fill="#fff">celınkı</text>
+  <!-- puntos de las dos «ı» como micas -->
+  <g fill="#8dc63f">
+    <path d="M236 52 h22 l10 10 v22 h-32 Z"/>
+    <path d="M258 52 l10 10 h-10 Z" fill="#cfe9a5"/>
+    <path d="M432 52 h22 l10 10 v22 h-32 Z"/>
+    <path d="M454 52 l10 10 h-10 Z" fill="#cfe9a5"/>
+  </g>
+  <text x="64" y="206" font-family="Avenir Next, Montserrat, sans-serif" font-weight="600" font-size="20" letter-spacing="8" fill="#8dc63f">HIDROGEL · PACHUCA</text>
+</svg>

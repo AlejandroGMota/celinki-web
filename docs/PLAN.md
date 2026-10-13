@@ -6,6 +6,14 @@ Fecha: 2026-10-12. Estado: plan, sin código.
 
 > **Alcance actual (2026-10-12): muestrario + pedido por WhatsApp. No se vende ni se cobra en línea.** El cliente ve el catálogo, arma su pedido y lo manda por WhatsApp; se cobra y entrega por fuera (en GAMMA o como se acuerde). Pagos en línea, envíos con guía y Cloud Functions quedan en la fase 3 («a futuro»), sin fecha.
 
+> **Estado al 2026-10-13 (lee esto primero).** El plan cambió: celinki.com quedó como **sitio solo de hidrogel (Plan A)**, no como muestrario de accesorios. Lo que está publicado:
+> - Hero con entrega gratis (Pachuca y Mineral de la Reforma, normalmente el mismo día), catálogo de micas para celular y tablet con precio por lámina, «Cómo pedir» ilustrado, cortadoras KASR (precio PDF + $2,500, entrega 2–3 semanas, anticipo 60%), preguntas frecuentes, recoger en GAMMA con mapa.
+> - Vista de celular con barra fija de WhatsApp; ícono de carga en fotos.
+> - SEO: robots.txt, sitemap, llms.txt, JSON-LD (LocalBusiness con catálogo + FAQPage), Open Graph, Search Console verificado.
+> - WhatsApp único: 771 868 2542.
+>
+> Las secciones de abajo sobre accesorios, SmartLife, Firebase y fases 1–3 quedan como **historia**; lo vigente está en `PLAN-visual.md`, `PLAN-responsive.md`, `PLAN-seo.md` y `CHECKLIST-contenido.md`.
+
 ## 1. De dónde partimos
 
 ### SmartLife_Solutions (2023, `../SmartLife_Solutions`)
