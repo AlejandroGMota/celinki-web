@@ -60,5 +60,7 @@ Fecha: 2026-10-13. Objetivo: aparecer cuando alguien busque (en Google, Google M
   - Tipo: **negocio de servicio a domicilio (área de servicio)**, sin dirección pública o con Plaza Tere solo como punto de recolección; zonas: Pachuca de Soto y Mineral de la Reforma.
   - Categoría sugerida: «Proveedor de accesorios para teléfonos celulares» / «Mayorista»; descripción centrada en hidrogel, corte a modelo y entrega gratis.
   - Mismo nombre, teléfono y sitio en Facebook, Mercado Libre y directorios.
-- [ ] Crear el perfil Celinki en Google Business (requiere aceptar condiciones y verificar con video).
+- [x] Perfil «Celinki» creado en Google Business (2026-10-13): categoría Tienda de accesorios para teléfonos celulares, área de servicio Pachuca de Soto y Mineral de la Reforma, tel. 771 868 2542, sitio celinki.com, chat por WhatsApp. Dirección de verificación privada (no pública).
+- [ ] Verificar el perfil con video desde el celular (Google Maps o business.google.com, cuenta cmke14y@gmail.com).
+- [ ] Al verificarse: descripción, fotos, productos (cada tipo de mica) y categoría adicional «Mayorista».
 - [ ] En el sitio, los datos estructurados ya son de Celinki (no de GAMMA) con el 771 868 2542.
