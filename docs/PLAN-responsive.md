@@ -11,7 +11,7 @@ Fecha: 2026-10-12. Supuesto: la mayoría de las visitas y ventas llegan desde ce
 ## 2. Por sección
 
 ### Barra superior
-- [ ] En celular: logo a la izquierda y botón «WhatsApp» a la derecha; el menú de texto se oculta (hoy ya se oculta).
+- [x] En celular: logo a la izquierda y botón «WhatsApp» a la derecha; el menú de texto se oculta (hoy ya se oculta).
 - [ ] Botón ☰ opcional con Micas · Cómo pedir · Entregas · Cortadoras · Tienda, si al probar hace falta.
 - [x] Altura máxima 56 px para no robar pantalla.
 
@@ -24,7 +24,7 @@ Fecha: 2026-10-12. Supuesto: la mayoría de las visitas y ventas llegan desde ce
 ### Micas (celular y tablet)
 - [x] 2 columnas en celular (no 1): foto cuadrada, nombre, precio grande; la descripción se puede cortar a una línea.
 - [ ] Alternativa a probar: carrusel horizontal deslizable por categoría (Celular / Tablet) con `scroll-snap`.
-- [x] Ícono de carga (hecho: `public/img/cargando.svg`) y fotos de máximo ~60 KB en celular (WebP, `srcset` 300/600 px).
+- [ ] Ícono de carga hecho (`public/img/cargando.svg`); falta: fotos de máximo ~60 KB en celular (WebP, `srcset` 300/600 px).
 
 ### Cómo pedir
 - [x] Pasos en 1 columna con la ilustración más chica a la izquierda y el texto a la derecha (tarjeta horizontal), para que los 4 pasos quepan en ~1.5 pantallas.
