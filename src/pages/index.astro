@@ -117,12 +117,41 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                     ))}
                 </ul>
 
-                <h3 class="k-flechas">Cómo pedir</h3>
-                <ol class="k-pasos">
-                    <li><b>Mándanos tipo y cantidad</b><span>Por WhatsApp: «30 HD, 20 mate y 10 privacidad mate». ¿Las quieres cortadas? Dinos los modelos de celular, mismo precio.</span></li>
-                    <li><b>Te las llevamos gratis</b><span>En Pachuca y Mineral de la Reforma desde 50 piezas, o 30 de privacidad.</span></li>
-                    <li><b>O recoge en tienda</b><span>En GAMMA, Plaza Tere, Santa Gertrudis.</span></li>
+                <h3 class="k-flechas" id="como-pedir">Cómo pedir</h3>
+                <ol class="pasos">
+                    <li>
+                        <img src="/img/pasos/1-whatsapp.svg" alt="Pedido por WhatsApp" loading="lazy" />
+                        <span class="paso-n">1</span>
+                        <b>Escríbenos por WhatsApp</b>
+                        <span>Tipo, cantidad y, si las quieres cortadas, el modelo de cada celular.</span>
+                    </li>
+                    <li>
+                        <img src="/img/pasos/2-cortada-o-lamina.svg" alt="Cortada o lámina, mismo precio" loading="lazy" />
+                        <span class="paso-n">2</span>
+                        <b>¿Cortada o lámina?</b>
+                        <span>Tú eliges. <strong>Mismo precio.</strong></span>
+                    </li>
+                    <li>
+                        <img src="/img/pasos/3-cortamos.svg" alt="Plotter KASR cortando la mica" loading="lazy" />
+                        <span class="paso-n">3</span>
+                        <b>La cortamos a tu medida</b>
+                        <span>Con plotter KASR y miles de modelos de celular y tablet.</span>
+                    </li>
+                    <li>
+                        <img src="/img/pasos/4-entrega.svg" alt="Entrega gratis en Pachuca y Mineral de la Reforma" loading="lazy" />
+                        <span class="paso-n">4</span>
+                        <b>Te la llevamos gratis</b>
+                        <span>
+                            <img class="lugar" src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca ·
+                            <img class="lugar" src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma,
+                            desde 50 piezas o 30 de privacidad. O recoge en GAMMA.
+                        </span>
+                    </li>
                 </ol>
+                <div class="pasos-cta">
+                    <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas</a>
+                    <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel a mayoreo:')} target="_blank" rel="noopener">Pedir lámina</a>
+                </div>
 
                 <h3 class="k-flechas" id="cortadoras">Cortadoras de hidrogel KASR</h3>
                 <div class="k-paquete">
@@ -231,10 +260,19 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .visita-botones .btn { margin-top: 0; }
     .btn-mapa { background: #1b1b1f; color: #fff; }
     .visita-mapa { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; }
-    .k-pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .k-pasos li { counter-increment: paso; background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); display: flex; flex-direction: column; gap: 4px; }
-    .k-pasos li::before { content: counter(paso); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--k-verde); color: #fff; font-weight: 800; }
-    .k-pasos span { color: var(--k-gris); font-size: 14px; }
+    .pasos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
+    .pasos::before { content: ''; position: absolute; left: 6%; right: 6%; top: calc(27% + 8px); border-top: 3px dashed var(--k-verde); z-index: 0; }
+    .pasos li { position: relative; z-index: 1; background: #fff; border-radius: 16px; padding: 12px 12px 18px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07); display: flex; flex-direction: column; gap: 6px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .pasos li:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12); }
+    .pasos li > img { width: 100%; height: auto; border-radius: 12px; }
+    .paso-n { align-self: flex-start; display: grid; place-items: center; width: 34px; height: 34px; margin-top: -26px; margin-left: 10px; border-radius: 50%; background: var(--k-verde); color: #fff; font-weight: 800; border: 3px solid #fff; }
+    .pasos li b { font-size: 17px; margin-top: 2px; }
+    .pasos li > span:last-child { color: var(--k-gris); font-size: 14px; }
+    .pasos strong { color: var(--k-texto); }
+    .lugar { display: inline-block; width: 20px; height: 20px; vertical-align: -5px; }
+    .pasos-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 18px; }
+    .pasos-cta .btn { margin-top: 0; font-size: 17px; padding: 14px 26px; }
+    .btn-borde { background: #fff; color: var(--k-texto); border: 2px solid var(--k-texto); }
 
     footer { padding: 32px 16px 96px; color: var(--k-gris); }
     footer a { color: var(--k-texto); }
@@ -242,7 +280,8 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
     @media (max-width: 860px) {
         .k-encabezado { grid-template-columns: 1fr; }
-        .k-pasos { grid-template-columns: 1fr; }
+            .pasos { grid-template-columns: 1fr 1fr; }
+        .pasos::before { display: none; }
         .visita { grid-template-columns: 1fr; }
     }
 </style>
