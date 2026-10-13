@@ -8,8 +8,8 @@ Precios por pieza (MXN) dados el 2026-10-12. Hoja de KASR según `Accesorios-com
 |---|---|---|---|
 | HD | $12 | NT68 | Sí: caja blanca con verde lima, león con audífonos, «Curved Screen Protective Film · High Definition HD · 190×120 mm» |
 | Matte | $12 | NT69 | Sí: misma caja con dorado, «MATTE» |
-| Blue Ray | $12 | — (no es de KASR) | No, falta foto propia o del proveedor |
-| Privacidad Matte | $28 | AG-12 (Lion: NT67) | Sí: «Repair Privacy-Matte», caja gris oscuro |
+| Blue Ray | $12 | LG-09 («Resist Blue Ray To Protect Eyes») | Sí |
+| Privacidad Matte | $28 | AG-12 | Sí: hoja negra «Privacy Matte · Model AG12» (producto 1600554918937) |
 | Privacidad HD | $32 | HD-09 (Lion: NT66) | Sí: «HD Privacy», caja negra |
 | Privacidad 360 | $55 | AG-13 | Sí: «Privacy Matte 360», caja negra con rojo |
 
@@ -19,9 +19,8 @@ Precios por pieza (MXN) dados el 2026-10-12. Hoja de KASR según `Accesorios-com
 |---|---|---|---|
 | Tablet 11" HD | $32 | NT70 | Sí: serie «Lion» para tablets y laptops 11" |
 | Tablet 11" Matte | $32 | NT71 | Sí: misma ficha que NT70 |
-| Tablet 13" | $45 | — (no es de KASR) | No |
-| Tablet 13" reducida | $42 | — (no es de KASR) | No |
-| Tablet 13" Privacidad HD | $95 | — (no es de KASR) | No |
+| Tablet 13" | $45 | HD-25 (mate: AG-26), 225×320 mm | Sí |
+| Tablet 13" Privacidad HD | $95 | Lámina blanca sin diseño | Ilustración propia (`public/img/hidrogel/tablet-13-privacidad.svg`) |
 
 ## Selección por tipo (`docs/referencias/kasr/seleccion/`)
 | Carpeta | Imágenes |
@@ -51,3 +50,5 @@ Otros productos de la tienda KASR (`mankadun.en.alibaba.com`) por si hacen falta
 - 1601294517710 Nano Hydrogel
 - 1601489514921 Factory Hydrogel Film Material
 - 1601524176745 Mobile Phone Protection Films
+
+Tablet 13" reducida: no se publica (no relevante).

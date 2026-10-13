@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" font-family="Montserrat, Arial, sans-serif">
+  <rect width="900" height="900" fill="#fff"/>
+  <!-- Lámina blanca -->
+  <g transform="translate(70 70)">
+    <rect x="0" y="0" width="380" height="540" rx="18" fill="#fff" stroke="#d6dbe3" stroke-width="3"/>
+    <rect x="0" y="0" width="380" height="540" rx="18" fill="url(#brillo)"/>
+    <text x="190" y="78" text-anchor="middle" font-size="40" font-weight="800" fill="#1b1b1f">PRIVACIDAD</text>
+    <rect x="130" y="98" width="120" height="40" rx="6" fill="#1b1b1f"/>
+    <text x="190" y="127" text-anchor="middle" font-size="26" font-weight="800" fill="#fff">HD</text>
+    <text x="190" y="170" text-anchor="middle" font-size="18" fill="#6b7280">Mica de hidrogel · Tablet 13"</text>
+    <line x1="24" y1="205" x2="356" y2="205" stroke="#c4cad4" stroke-dasharray="8 6"/>
+    <!-- ícono ojo tachado -->
+    <g transform="translate(190 290)" fill="none" stroke="#1b1b1f" stroke-width="7" stroke-linecap="round">
+      <path d="M-70 0 C-40 -42 40 -42 70 0 C40 42 -40 42 -70 0 Z"/>
+      <circle r="16" fill="#1b1b1f"/>
+      <line x1="-62" y1="-48" x2="62" y2="48"/>
+    </g>
+    <text x="190" y="380" text-anchor="middle" font-size="20" font-weight="600" fill="#1b1b1f">Nadie ve tu pantalla de lado</text>
+    <text x="190" y="408" text-anchor="middle" font-size="17" fill="#6b7280">Alta definición de frente</text>
+    <line x1="24" y1="450" x2="356" y2="450" stroke="#c4cad4" stroke-dasharray="8 6"/>
+    <text x="190" y="500" text-anchor="middle" font-size="18" fill="#6b7280">225 × 320 mm</text>
+  </g>
+  <!-- Tablet vista de lado: pantalla oscura -->
+  <g transform="translate(500 210) skewY(-8)">
+    <rect x="0" y="0" width="320" height="440" rx="28" fill="#2b2f36"/>
+    <rect x="16" y="16" width="288" height="408" rx="16" fill="#0d0f12"/>
+    <rect x="16" y="16" width="288" height="408" rx="16" fill="url(#reflejo)"/>
+  </g>
+  <text x="660" y="760" text-anchor="middle" font-size="20" font-weight="600" fill="#6b7280">De lado: pantalla oscura</text>
+  <defs>
+    <linearGradient id="brillo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#eef2f7" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="reflejo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".08"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
