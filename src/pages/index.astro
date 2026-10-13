@@ -3,7 +3,7 @@ const wa = (numero: string, texto: string) => `https://wa.me/52${numero}?text=${
 
 const telHidrogel = '7718682542';
 const hidrogelWa = (tipo?: string) =>
-    wa(telHidrogel, tipo ? `Hola Celinki, quiero láminas de hidrogel ${tipo}` : 'Hola Celinki, quiero cotizar láminas de hidrogel a mayoreo');
+    wa(telHidrogel, tipo ? `Hola Celinki, quiero micas de hidrogel ${tipo}` : 'Hola Celinki, quiero cotizar micas de hidrogel, cortadas al tamaño de mis modelos o en lámina sin corte');
 
 const mapa = 'https://www.google.com/maps/dir/?api=1&destination=Plaza+Tere+Santa+Gertrudis+Hidalgo';
 
@@ -60,7 +60,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         <title>Celinki · Hidrogel a mayoreo</title>
         <meta
             name="description"
-            content="Láminas de hidrogel KASR a mayoreo para vendedores: HD, mate, Blue Ray y privacidad, para celular y tablet. Entrega gratis en Pachuca y Mineral de la Reforma desde 50 piezas. Cortadoras de hidrogel KASR con 50 láminas de regalo."
+            content="Micas de hidrogel KASR cortadas al tamaño del modelo que elijas o en lámina sin corte, a mayoreo: HD, mate, Blue Ray y privacidad, para celular y tablet. Entrega gratis en Pachuca y Mineral de la Reforma desde 50 piezas. Cortadoras de hidrogel KASR con 50 láminas de regalo."
         />
         <link rel="canonical" href="https://celinki.com/" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -88,15 +88,15 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                 <div class="k-encabezado">
                     <div>
                         <p class="k-marca">CELINKI · <span>HIDROGEL KASR</span></p>
-                        <h1>Micas de hidrogel <span>cortadas a tu modelo</span></h1>
-                        <p class="k-sub">O lámina a mayoreo para vendedores y técnicos. <b>Mismo precio.</b></p>
+                        <h1>Micas de hidrogel <span>cortadas al tamaño del modelo que elijas</span></h1>
+                        <p class="k-sub">O lámina sin corte a mayoreo para vendedores y técnicos. <b>Mismo precio.</b></p>
                         <div class="sellos">
-                            <p class="sello sello-corte"><span class="sello-ico">✂</span><span><b>Cortada a tu modelo</b>mismo precio que la lámina</span></p>
+                            <p class="sello sello-corte"><span class="sello-ico">✂</span><span><b>Cortada al tamaño del modelo que elijas</b>mismo precio que la lámina sin corte</span></p>
                             <p class="sello sello-entrega"><span class="sello-ico">🚚</span><span><b>Entrega gratis</b>desde 50 piezas o 30 de privacidad</span><span class="sello-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="Pachuca" /><img src="/img/iconos/mineral-castillete.svg" alt="Mineral de la Reforma" /></span></p>
                         </div>
                         <div class="hero-botones">
-                            <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas</a>
-                            <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel a mayoreo:')} target="_blank" rel="noopener">Pedir lámina</a>
+                            <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas al tamaño de mis modelos. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas a mi modelo</a>
+                            <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel sin corte a mayoreo:')} target="_blank" rel="noopener">Pedir lámina sin corte</a>
                         </div>
                     </div>
                     <img src="/img/hidrogel/maquina.jpg" alt="Cortadora KASR cortando micas de hidrogel a la medida" />
@@ -116,8 +116,8 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
                 <div class="selector" role="group" aria-label="¿Cómo las quieres?">
                     <span>¿Cómo las quieres?</span>
-                    <button type="button" class="sel activo" data-modo="cortadas" aria-pressed="true">✂ Cortadas a mi modelo</button>
-                    <button type="button" class="sel" data-modo="lamina" aria-pressed="false">Lámina</button>
+                    <button type="button" class="sel activo" data-modo="cortadas" aria-pressed="true">✂ Cortadas al tamaño de mi modelo</button>
+                    <button type="button" class="sel" data-modo="lamina" aria-pressed="false">Lámina sin corte</button>
                     <small>Mismo precio</small>
                 </div>
 
@@ -132,7 +132,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                                 <h4>{m.nombre}</h4>
                                 <p>{m.nota}</p>
                                 <p class="k-precio">${m.precio}<small> por lámina</small></p>
-                                <a class="pedir" data-tipo={m.nombre} href={wa(telHidrogel, `Hola Celinki, quiero micas ${m.nombre} cortadas. Modelos y cantidades:`)} target="_blank" rel="noopener">Pedir cortadas</a>
+                                <a class="pedir" data-tipo={m.nombre} href={wa(telHidrogel, `Hola Celinki, quiero micas ${m.nombre} cortadas al tamaño de mis modelos. Modelos y cantidades:`)} target="_blank" rel="noopener">Pedir cortadas a mi modelo</a>
                             </div>
                         </li>
                     ))}
@@ -149,7 +149,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                                 <h4>{m.nombre}</h4>
                                 <p>{m.nota}</p>
                                 <p class="k-precio">${m.precio}<small> por lámina</small></p>
-                                <a class="pedir" data-tipo={m.nombre} href={wa(telHidrogel, `Hola Celinki, quiero micas ${m.nombre} cortadas. Modelos y cantidades:`)} target="_blank" rel="noopener">Pedir cortadas</a>
+                                <a class="pedir" data-tipo={m.nombre} href={wa(telHidrogel, `Hola Celinki, quiero micas ${m.nombre} cortadas al tamaño de mis modelos. Modelos y cantidades:`)} target="_blank" rel="noopener">Pedir cortadas a mi modelo</a>
                             </div>
                         </li>
                     ))}
@@ -161,18 +161,18 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                         <img src="/img/pasos/1-whatsapp.svg" alt="Pedido por WhatsApp" loading="lazy" />
                         <span class="paso-n">1</span>
                         <b>Escríbenos por WhatsApp</b>
-                        <span>Tipo, cantidad y, si las quieres cortadas, el modelo de cada celular.</span>
+                        <span>Tipo y cantidad. Si las quieres cortadas al tamaño de tu modelo, dinos el modelo de cada celular.</span>
                     </li>
                     <li>
-                        <img src="/img/pasos/2-cortada-o-lamina.svg" alt="Cortada o lámina, mismo precio" loading="lazy" />
+                        <img src="/img/pasos/2-cortada-o-lamina.svg" alt="Cortada al tamaño de tu modelo o lámina sin corte, mismo precio" loading="lazy" />
                         <span class="paso-n">2</span>
-                        <b>¿Cortada o lámina?</b>
-                        <span>Tú eliges. <strong>Mismo precio.</strong></span>
+                        <b>¿Cortada o lámina sin corte?</b>
+                        <span>Cortada al tamaño del modelo que elijas o lámina sin corte. <strong>Mismo precio.</strong></span>
                     </li>
                     <li>
                         <img src="/img/pasos/3-cortamos.svg" alt="Cortadora KASR cortando la mica" loading="lazy" />
                         <span class="paso-n">3</span>
-                        <b>La cortamos a tu medida</b>
+                        <b>La cortamos al tamaño de tu modelo</b>
                         <span>Con cortadora KASR y miles de modelos de celular y tablet.</span>
                     </li>
                     <li>
@@ -187,13 +187,13 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                     </li>
                 </ol>
                 <div class="pasos-cta">
-                    <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas</a>
-                    <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel a mayoreo:')} target="_blank" rel="noopener">Pedir lámina</a>
+                    <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas al tamaño de mis modelos. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas a mi modelo</a>
+                    <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel sin corte a mayoreo:')} target="_blank" rel="noopener">Pedir lámina sin corte</a>
                 </div>
 
                 <h3 class="k-flechas" id="cortadoras">Cortadoras de hidrogel KASR</h3>
                 <div class="k-paquete">
-                    <p><b>Arma tu propio negocio de micas.</b> Cada cortadora incluye un <b>paquete inicial de 50 láminas</b>:</p>
+                    <p><b>Arma tu propio negocio de micas.</b> Cada cortadora incluye un <b>paquete inicial de 50 láminas sin corte</b>:</p>
                     <ul>{paquete.map((x) => <li>{x}</li>)}</ul>
                     <ul class="condiciones">
                         <li><span>🚚</span><b>Entrega en 2 a 3 semanas</b> en la dirección que nos indiques</li>
@@ -208,7 +208,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                             <div class="k-info">
                                 <h4>{c.modelo} <span class="k-corte">Corte {c.corte}</span></h4>
                                 <p>Ancho de corte {c.ancho} mm · {c.peso} kg</p>
-                                <p>+ 50 láminas de regalo</p>
+                                <p>+ 50 láminas sin corte de regalo</p>
                                 <p class="k-precio">${pesos(c.precio)}<small> precio final</small></p>
                                 <a href={wa(telHidrogel, `Hola Celinki, me interesa la cortadora KASR ${c.modelo}`)} target="_blank" rel="noopener">Pedir</a>
                             </div>
@@ -249,8 +249,8 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                 const tel = '527718682542';
                 const texto = (modo, tipo) =>
                     modo === 'cortadas'
-                        ? `Hola Celinki, quiero micas ${tipo} cortadas. Modelos y cantidades:`
-                        : `Hola Celinki, quiero láminas ${tipo} a mayoreo. Cantidad:`;
+                        ? `Hola Celinki, quiero micas ${tipo} cortadas al tamaño de mis modelos. Modelos y cantidades:`
+                        : `Hola Celinki, quiero láminas ${tipo} sin corte, a mayoreo. Cantidad:`;
                 const aplicar = (modo) => {
                     document.querySelectorAll('.sel').forEach((b) => {
                         const on = b.dataset.modo === modo;
@@ -259,7 +259,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
                     });
                     document.querySelectorAll('a.pedir').forEach((a) => {
                         a.href = `https://wa.me/${tel}?text=${encodeURIComponent(texto(modo, a.dataset.tipo))}`;
-                        a.textContent = modo === 'cortadas' ? 'Pedir cortadas' : 'Pedir lámina';
+                        a.textContent = modo === 'cortadas' ? 'Pedir cortadas a mi modelo' : 'Pedir lámina sin corte';
                     });
                 };
                 document.querySelectorAll('.sel').forEach((b) => b.addEventListener('click', () => aplicar(b.dataset.modo)));
@@ -292,7 +292,6 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .k-encabezado h1 { margin: 6px 0; font-family: 'Times New Roman', Georgia, serif; font-size: clamp(30px, 4.5vw, 46px); color: var(--k-verde); text-transform: uppercase; line-height: 1.05; }
     .k-sub { margin: 0 0 8px; color: var(--k-gris); }
     .k-zonas { margin: 0; }
-    .k-cortado { margin: 0 0 8px; padding: 8px 12px; border-radius: 10px; background: #f4f9ec; border: 1px dashed var(--k-verde); }
     .k-flechas { display: flex; align-items: center; gap: 12px; margin: 36px 0 14px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
     .k-flechas::before { content: '«'; color: #fff; background: var(--k-verde); border-radius: 6px; padding: 0 8px; font-size: 22px; line-height: 1.3; }
     .k-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
