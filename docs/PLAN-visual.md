@@ -90,3 +90,12 @@ Alternativas si no convencen: Pachuca → Cristo Rey o el escudo de los Tuzos; M
 - ¿Cuánto tarda la entrega y qué días? (para el sello y las preguntas).
 - ¿Cómo te pagan? (efectivo, transferencia).
 - Fotos reales: tu cortadora cortando, micas colocadas, tus láminas Blue Ray y 13" privacidad.
+
+## Volante imprimible (2026-10-12)
+Para dejar en locales, en persona. **Sin precios** (puede leerlo un empleado, no el dueño); los precios se dan directo al dueño por WhatsApp.
+- Archivos: `docs/volante/volante.html` (diseño) y `docs/volante/volante-carta-4.pdf` (listo para imprimir: carta, 4 por hoja, con líneas de corte).
+- Contenido: logo, «Micas de hidrogel», cortadas al tamaño del modelo que elijas o en lámina sin corte, 8 tipos con foto, entrega gratis en Pachuca y Mineral de la Reforma (desde 50 piezas o 30 de privacidad), QR a `celinki.com/?utm_source=volante` y WhatsApp 771 868 2542.
+- [ ] Imprimir prueba y revisar que el QR se lea con el celular
+- [ ] Cambiar el logo provisional cuando se elija el definitivo (regenerar el PDF)
+- [ ] Llevar volantes a locales de Pachuca y Mineral de la Reforma
+- [ ] Contar visitas que llegan por el QR (parámetro `utm_source=volante`) cuando haya analítica
