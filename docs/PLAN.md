@@ -77,9 +77,9 @@ Lo que hace bien y vale la pena copiar en minorista:
 ## 4. Fases
 
 ### Fase 0 — Dominio y esqueleto (1–2 días)
-- [ ] Crear el repo `celinki-web` en GitHub (público, para Pages gratis).
-- [ ] Astro + Tailwind con una portada sencilla: Celinki, qué vendemos, ubicación de GAMMA, horario y botón de WhatsApp (7711030032).
-- [ ] Archivo `CNAME` con `celinki.com` y deploy con GitHub Actions.
+- [x] Crear el repo `celinki-web` en GitHub (público, para Pages gratis). (2026-10-12)
+- [x] Astro con una portada sencilla: Celinki, qué vendemos, micas de hidrogel a mayoreo (entrega en Pachuca y Mineral de la Reforma), ubicación de GAMMA, horario y botón de WhatsApp (7711030032). Tailwind queda para la fase 1. (2026-10-12)
+- [x] Archivo `CNAME` con `celinki.com` y deploy con GitHub Actions; Pages con fuente «GitHub Actions» y dominio celinki.com. (2026-10-12)
 - [x] Verificar `celinki.com` en GitHub (registro TXT `_github-pages-challenge-AlejandroGMota`) **antes** de apuntar el DNS. Así nadie más puede usar el dominio en su propio Pages. (2026-10-12)
 - [x] DNS en Namecheap (ver sección 5): 4 registros A y www → alejandrogmota.github.io; se quitó la página de estacionamiento y el reenvío de correo sigue igual. (2026-10-12)
 - [ ] HTTPS forzado («Enforce HTTPS» en el repo, cuando GitHub emita el certificado).
