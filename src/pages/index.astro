@@ -64,6 +64,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
         />
         <link rel="canonical" href="https://celinki.com/" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <script is:inline>document.documentElement.classList.add('js');</script>
         <meta property="og:title" content="Celinki · Hidrogel a mayoreo" />
         <meta property="og:image" content="https://celinki.com/img/hidrogel/hd-vs-mate.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -225,7 +226,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
         <footer class="wrap">
             <p class="pie-marca"><img src="/favicon.svg" alt="" width="20" height="20" /> <b>celinki</b> · Micas de hidrogel</p>
-            <p class="pie-lugares"><img src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca <img src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma · entrega gratis</p>
+            <p class="pie-lugares"><span><img src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca</span> <span><img src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma</span> <span>· entrega gratis</span></p>
             <p>WhatsApp <a href={hidrogelWa()} target="_blank" rel="noopener">771 868 2542</a> · Tienda: lunes a viernes, 1 a 5 pm</p>
         </footer>
 
@@ -345,15 +346,15 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .hero-entrega small { color: var(--k-gris); }
     .hero-botones { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 0; }
     .hero-botones .btn { margin-top: 0; font-size: 16px; padding: 13px 22px; }
-    @keyframes entrar { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: none; } }
+    @keyframes entrar { from { transform: translateY(10px) scale(0.98); } to { transform: none; } }
 
 
 
     /* Fotos: fondo mientras cargan */
     .k-foto { background: #f4f6f2 url('/img/cargando.svg') center / 56px no-repeat; animation: latido 1.4s ease-in-out infinite; }
     .k-foto:has(img[data-ok]) { animation: none; background-image: none; background-color: #fff; }
-    .k-foto img { opacity: 0; transition: opacity 0.35s ease; }
-    .k-foto img[data-ok] { opacity: 1; }
+    .js .k-foto img { opacity: 0; transition: opacity 0.35s ease; }
+    .js .k-foto img[data-ok] { opacity: 1; }
     @keyframes latido { 50% { background-color: #eef4e6; } }
 
     .condiciones { list-style: none; padding: 0; margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -364,6 +365,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .barra-wa { display: none; }
     .ver-todas { display: none; }
     .pie-marca, .pie-lugares { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .pie-lugares span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
     .pie-lugares img { width: 20px; height: 20px; }
     footer p { margin: 6px 0; }
 
