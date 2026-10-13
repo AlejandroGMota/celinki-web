@@ -335,7 +335,7 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .menu a { color: var(--k-texto); text-decoration: none; font-weight: 600; font-size: 15px; }
     .menu a:hover { color: #6fa22c; }
     .btn-chico { margin-top: 0; padding: 8px 16px; font-size: 14px; }
-    html { scroll-padding-top: 72px; }
+    html { scroll-padding-top: 72px; scroll-behavior: smooth; }
 
     /* Hero */
     .kasr { padding-top: 28px; }
@@ -380,5 +380,6 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
             .flotante { left: 16px; right: 16px; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
         }
 </style>
