@@ -5,7 +5,7 @@ const telHidrogel = '7718682542';
 const hidrogelWa = (tipo?: string) =>
     wa(telHidrogel, tipo ? `Hola Celinki, quiero láminas de hidrogel ${tipo}` : 'Hola Celinki, quiero cotizar láminas de hidrogel a mayoreo');
 
-const mapa = 'https://www.google.com/maps/search/?api=1&query=Plaza+Tere+Santa+Gertrudis+Hidalgo';
+const mapa = 'https://www.google.com/maps/dir/?api=1&destination=Plaza+Tere+Santa+Gertrudis+Hidalgo';
 
 // Colores de etiqueta como en los empaques KASR
 type Mica = { nombre: string; precio: number; nota: string; color: string; img?: string };
@@ -147,10 +147,22 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
 
                 <h3 class="k-flechas" id="visitanos">Recoge en tienda</h3>
                 <div class="k-card visita" style="--etq:#8dc63f">
-                    <h3>GAMMA Accesorios para celular</h3>
-                    <p>Plaza Tere, A El Huixmí, 42111 Santa Gertrudis, Hgo.</p>
-                    <p>Lunes a viernes, 1:00 a 5:00 pm</p>
-                    <p><a class="k-mapa" href={mapa} target="_blank" rel="noopener">Ver en Google Maps</a></p>
+                    <div class="visita-info">
+                        <h4>GAMMA Accesorios para celular</h4>
+                        <p class="visita-dato"><span aria-hidden="true">📍</span>Plaza Tere, A El Huixmí, 42111 Santa Gertrudis, Hgo.</p>
+                        <p class="visita-dato"><span aria-hidden="true">🕐</span>Lunes a viernes, 1:00 a 5:00 pm</p>
+                        <p class="visita-dato"><span aria-hidden="true">📦</span>Recoge tu pedido sin costo de envío</p>
+                        <div class="visita-botones">
+                            <a class="btn btn-mapa" href={mapa} target="_blank" rel="noopener">Cómo llegar</a>
+                            <a class="btn btn-wa" href={hidrogelWa()} target="_blank" rel="noopener">Avisar que voy</a>
+                        </div>
+                    </div>
+                    <iframe
+                        class="visita-mapa"
+                        title="Mapa de Plaza Tere, Santa Gertrudis"
+                        src="https://www.google.com/maps?q=Plaza+Tere,+Santa+Gertrudis,+Hidalgo&z=16&output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </main>
@@ -208,6 +220,15 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .k-paquete ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 10px; }
     .k-paquete li { border: 1px solid #dbe3c8; background: #f4f9ec; border-radius: 999px; padding: 4px 12px; font-weight: 700; }
     .k-gris { color: var(--k-gris); font-size: 14px; }
+    .visita { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; }
+    .visita-info { padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+    .visita-info h4 { margin: 0 0 4px; font-size: 20px; }
+    .visita-dato { margin: 0; display: flex; gap: 10px; align-items: flex-start; color: var(--k-texto); }
+    .visita-dato span { width: 22px; flex: none; text-align: center; }
+    .visita-botones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .visita-botones .btn { margin-top: 0; }
+    .btn-mapa { background: #1b1b1f; color: #fff; }
+    .visita-mapa { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; }
     .k-pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .k-pasos li { counter-increment: paso; background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); display: flex; flex-direction: column; gap: 4px; }
     .k-pasos li::before { content: counter(paso); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--k-verde); color: #fff; font-weight: 800; }
@@ -220,5 +241,6 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     @media (max-width: 860px) {
         .k-encabezado { grid-template-columns: 1fr; }
         .k-pasos { grid-template-columns: 1fr; }
+        .visita { grid-template-columns: 1fr; }
     }
 </style>
