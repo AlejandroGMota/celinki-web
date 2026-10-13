@@ -12,7 +12,6 @@ Fecha: 2026-10-12. Basado en capturas de la página publicada. Objetivo: que en 
 | Hay un solo botón y está en la primera tarjeta; las tarjetas de producto dicen «Pedir» sin decir si cortada o lámina | El cliente no sabe qué está pidiendo |
 | La foto del hero (cajas HD y Mate) es igual a las de las tarjetas | No cuenta nada nuevo: ni el corte, ni la entrega |
 | Cuadrículas con huecos: «Privacidad HD» y «360» solas en su fila; igual «Tablet 13" Privacidad HD» | Se ve desordenado |
-| 19 cortadoras en tarjetas casi iguales, más largas que todo el catálogo de láminas | El cliente se cansa; la cortadora es venta ocasional, no la principal |
 | Recuadros en blanco mientras cargan las fotos | Parece que la página está rota |
 | Mezcla de estilos: fotos KASR, dos ilustraciones propias (Blue Ray, 13" privacidad) | Bien por ahora; a futuro, fotos propias |
 | Sin preguntas frecuentes ni señales de confianza (tiempo de entrega, cómo se paga, garantía) | Un vendedor nuevo no se anima a pedir |
@@ -28,7 +27,6 @@ Fecha: 2026-10-12. Basado en capturas de la página publicada. Objetivo: que en 
      - 🚚 **Entrega gratis** · 50 piezas o 30 de privacidad
    - Botones: «Pedir cortadas» (verde, principal) y «Pedir lámina» (blanco con borde).
    - Imagen: video corto o foto del plotter KASR cortando una mica, con un celular al lado (de `docs/referencias/kasr/videos/`).
-3. **Franja «Así de fácil»** (3 pasos con ícono): mándanos modelo y tipo → la cortamos → te la llevamos gratis.
 4. **Sección «Entregas gratis»** (bloque propio, fondo verde muy claro):
    - Viñetas con ícono de cada lugar:
      - ![](../public/img/iconos/pachuca-reloj.svg) **Pachuca** · Reloj Monumental
@@ -41,9 +39,8 @@ Fecha: 2026-10-12. Basado en capturas de la página publicada. Objetivo: que en 
    - Tarjetas de la misma altura y cuadrícula sin huecos (4 columnas en computadora, 2 en celular, centrar la última fila).
    - Fondo gris claro en el recuadro de la foto mientras carga.
    - Etiqueta de privacidad («Nadie ve tu pantalla») en las 3 de privacidad.
-6. **Cortadoras KASR** (compacto):
-   - Agrupar por tamaño de corte: **Chica (10–12")**, **Mediana (14–15")**, **Grande (17")**, **Extra grande (21–22")**, mostrando 1 destacada por grupo y «ver todas» que despliega el resto.
-   - Recuadro del paquete de 50 láminas arriba, como hoy.
+6. **Cómo pedir** (debajo de las micas, arriba de las cortadoras; decidido 2026-10-12).
+   6b. **Cortadoras KASR:** se quedan como están, con sus tamaños actuales (decidido 2026-10-12).
 7. **Preguntas frecuentes:** ¿cuánto tarda la entrega?, ¿cómo pago?, ¿qué modelos cortan?, ¿cortan para tablet?, ¿qué pasa si la mica no queda?, ¿puedo recoger en tienda?
 8. **Recoge en tienda** (como quedó, con mapa).
 9. **Pie:** logo, WhatsApp, zonas de entrega con sus íconos, horario.
@@ -85,7 +82,6 @@ Alternativas si no convencen: Pachuca → Cristo Rey o el escudo de los Tuzos; M
 2. Hero nuevo con los dos sellos y dos botones.
 3. Sección «Entregas gratis» con los íconos de lugar.
 4. Selector Cortada / Lámina en el catálogo + cuadrícula sin huecos + fondo de carga.
-5. Cortadoras agrupadas.
 6. Preguntas frecuentes y pie.
 7. Animaciones y video.
 
