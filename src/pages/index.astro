@@ -20,7 +20,7 @@ const celular: Mica[] = [
 const tablet: Mica[] = [
     { nombre: 'Tablet 11" HD', precio: 32, nota: 'Transparente · NT-70', color: '#8dc63f', img: '/img/hidrogel/tablet-11-hd.jpg' },
     { nombre: 'Tablet 11" Mate', precio: 32, nota: 'Antirreflejo · NT-71', color: '#b8893a', img: '/img/hidrogel/tablet-11-mate.jpg' },
-    { nombre: 'Tablet 13" HD', precio: 45, nota: 'Transparente, alta definición', color: '#8dc63f', img: '/img/hidrogel/tablet-13.jpg' },
+    { nombre: 'Tablet 13" HD', precio: 45, nota: 'Transparente, alta definición', color: '#8dc63f', img: '/img/hidrogel/tablet-13-hd.jpg' },
     { nombre: 'Tablet 13" Mate', precio: 45, nota: 'Antirreflejo', color: '#b8893a', img: '/img/hidrogel/tablet-13-mate.jpg' },
     { nombre: 'Tablet 13" Privacidad HD', precio: 95, nota: 'Privacidad con alta definición', color: '#1b1b1f', img: '/img/hidrogel/tablet-13-privacidad.svg' },
 ];
@@ -205,7 +205,8 @@ const pesos = (n: number) => n.toLocaleString('es-MX');
     .k-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
     .k-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07); border-top: 8px solid var(--etq); display: flex; flex-direction: column; }
     .k-foto { aspect-ratio: 1; background: #fff; display: grid; place-items: center; }
-    .k-foto img { width: 100%; height: 100%; object-fit: contain; }
+    .k-foto { overflow: hidden; }
+    .k-foto img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; }
     .k-sinfoto { font-family: 'Times New Roman', Georgia, serif; font-weight: 700; font-size: 26px; text-transform: uppercase; color: var(--etq); text-align: center; padding: 16px; border: 3px solid var(--etq); border-radius: 10px; margin: 24px; }
     .k-info { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
     .k-info h4 { margin: 0; font-size: 17px; }
