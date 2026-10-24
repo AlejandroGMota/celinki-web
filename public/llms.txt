@@ -5,6 +5,10 @@
 - Sitio: https://celinki.com/
 - WhatsApp para pedidos y precios: +52 771 868 2542
 - Zona de entrega: Pachuca de Soto y Mineral de la Reforma, Hidalgo.
+- Envíos a todo México por paquetería. A Ciudad de México y Estado de México, precio total con envío incluido:
+  - Estafeta Express (se recoge en sucursal Estafeta): 50 HD o mate $750; 75 HD o mate $900; 50 privacidad (mate o HD) $1,400; 75 privacidad $2,100.
+  - UPS Express (a domicilio): 50 HD o mate $850; 75 HD o mate $1,000; 50 privacidad $1,500; 75 privacidad $2,200. Otras cantidades: costo de las micas + $300.
+  - Resto del país (Monterrey, Guadalajara y otras ciudades): costo de las micas + unos $500 de envío por UPS a domicilio. Fuera de México, preguntar.
 - Punto de recolección: GAMMA Accesorios para celular, Plaza Tere, A El Huixmí, 42111 Santa Gertrudis, Hidalgo. Lunes a viernes, 1:00 a 5:00 pm.
 - Atención por WhatsApp: domingo a viernes.
 
@@ -53,4 +57,5 @@
 ## Preguntas frecuentes
 - ¿Qué es una mica de hidrogel? Un protector de pantalla flexible de TPU que cubre toda la pantalla, incluso orillas curvas, y no se estrella como el cristal.
 - ¿Diferencia entre HD, mate, Blue Ray y privacidad? HD: transparente. Mate: sin reflejos ni huellas. Blue Ray: filtra luz azul. Privacidad: oscurece la pantalla vista de lado; la 360 por los cuatro lados.
+- ¿Envían a otros estados? Sí, a todo México: CDMX y Edomex con paquetes con envío incluido desde $750; resto del país, micas + unos $500 de envío.
 - ¿Tienen para tablet? Sí, 11" y 13" en HD y mate, y 13" con privacidad HD.

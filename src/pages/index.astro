@@ -54,6 +54,7 @@ const preguntas = [
     ['¿Me las cortan al tamaño de mi modelo?', 'Sí. Las cortamos con cortadora KASR al tamaño del modelo que elijas, al mismo precio que la lámina sin corte. Solo dinos el modelo de cada celular o tablet.'],
     ['¿Cuándo me lo entregan?', 'Normalmente el mismo día. Si pides por la tarde, por ejemplo a las 3 pm, te lo llevamos ese día; si pides en la noche, por ejemplo a las 7 pm, lo programamos para el día siguiente o, si se puede, te lo llevamos ese mismo día.'],
     ['¿Cuál es el mínimo para la entrega gratis?', 'Desde 50 piezas, o 30 de privacidad, te las llevamos gratis en Pachuca y Mineral de la Reforma.'],
+    ['¿Envían a otros estados?', 'Sí, a todo México. A Ciudad de México y Estado de México hay paquetes con envío incluido por Estafeta Express (recoges en sucursal) o UPS Express (a tu domicilio); por ejemplo, 50 micas HD o mate con envío por Estafeta cuestan $750. Al resto del país, como Monterrey o Guadalajara, es el costo de las micas más unos $500 de envío por UPS a domicilio. Escríbenos con tu código postal y te confirmamos. Si estás fuera de México, pregúntanos.'],
     ['¿Puedo recoger mi pedido?', 'Sí, en GAMMA Accesorios para celular, Plaza Tere, Santa Gertrudis, de lunes a viernes de 1:00 a 5:00 pm.'],
     ['¿Tienen para tablet?', 'Sí: láminas para tablet de 11 y 13 pulgadas en HD y mate, y de 13 pulgadas con privacidad HD.'],
     ['¿Cuánto tarda una cortadora y cómo se aparta?', 'Las cortadoras KASR llegan en 2 a 3 semanas a la dirección que nos indiques. Se apartan con un anticipo mínimo del 60% e incluyen un paquete inicial de 50 láminas sin corte.'],
@@ -61,6 +62,15 @@ const preguntas = [
 ] as [string, string][];
 const paquete = ['15 HD', '15 Mate', '10 Privacidad Mate', '5 Tablet 11" HD', '5 Tablet 11" Mate'];
 const pesos = (n: number) => n.toLocaleString('es-MX');
+
+// Envíos por paquetería: precio total con envío incluido a CDMX y Estado de México. Privacidad = mate o HD, mismo precio
+type Envio = { nombre: string; entrega: string; ico: string; precios: [string, number][]; nota?: string };
+const envios: Envio[] = [
+    { nombre: 'Estafeta Express', entrega: 'Recoges en sucursal Estafeta', ico: '🏪', precios: [['50 HD o Mate', 750], ['75 HD o Mate', 900], ['50 Privacidad', 1400], ['75 Privacidad', 2100]] },
+    { nombre: 'UPS Express', entrega: 'A tu domicilio exacto', ico: '🏠', precios: [['50 HD o Mate', 850], ['75 HD o Mate', 1000], ['50 Privacidad', 1500], ['75 Privacidad', 2200]], nota: 'Otra cantidad: costo de las micas + $300 de envío.' },
+];
+// Resto del país: tope estimado con la tarifa UPS Express Saver 2026 de 1 kg en la zona más cara (~$434 + IVA)
+const envioPais = 500;
 
 const ofertas = [...celular, ...tablet].map((m) => ({
     '@type': 'Offer',
@@ -97,6 +107,7 @@ const schema = {
             areaServed: [
                 { '@type': 'City', name: 'Pachuca de Soto' },
                 { '@type': 'City', name: 'Mineral de la Reforma' },
+                { '@type': 'Country', name: 'México' },
             ],
             hasOfferCatalog: {
                 '@type': 'OfferCatalog',
@@ -157,6 +168,7 @@ const schema = {
                     <a href="#celular">Micas</a>
                     <a href="#como-pedir">Cómo pedir</a>
                     <a href="#entregas">Entregas</a>
+                    <a href="#envios">Envíos</a>
                     <a href="#cortadoras">Cortadoras</a>
                     <a href="#visitanos">Tienda</a>
                 </nav>
@@ -178,6 +190,13 @@ const schema = {
                                 <small>Normalmente el mismo día · desde 50 piezas o 30 de privacidad</small>
                             </div>
                         </div>
+                        <a class="hero-envio" href="#envios">
+                            <span class="he-ico">📦</span>
+                            <div>
+                                <b>Envíos a todo México</b>
+                                <small>CDMX y Edomex desde $750 con envío incluido · Monterrey, Guadalajara y más. <span class="he-cotiza">Ver precios →</span></small>
+                            </div>
+                        </a>
                         <div class="hero-botones">
                             <a class="btn btn-negro" href="#celular">Ver micas</a>
                             <a class="btn btn-borde" href="#como-pedir">Cómo pedir</a>
@@ -246,13 +265,40 @@ const schema = {
                         <span>
                             <img class="lugar" src="/img/iconos/pachuca-reloj.svg" alt="" /> Pachuca ·
                             <img class="lugar" src="/img/iconos/mineral-castillete.svg" alt="" /> Mineral de la Reforma,
-                            desde 50 piezas o 30 de privacidad. O recoge en GAMMA.
+                            desde 50 piezas o 30 de privacidad. O recoge en GAMMA. Al resto de México, <a href="#envios">por paquetería</a>.
                         </span>
                     </li>
                 </ol>
                 <div class="pasos-cta">
                     <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero micas de hidrogel cortadas al tamaño de mis modelos. Modelos y cantidades:')} target="_blank" rel="noopener">✂ Pedir cortadas a mi modelo</a>
                     <a class="btn btn-borde" href={wa(telHidrogel, 'Hola Celinki, quiero láminas de hidrogel sin corte a mayoreo:')} target="_blank" rel="noopener">Pedir lámina sin corte</a>
+                </div>
+
+                <h3 class="k-flechas" id="envios">Envíos a todo México</h3>
+                <p class="envios-sub"><b>Ciudad de México y Estado de México:</b> precio total, micas y envío incluidos.</p>
+                <div class="envios">
+                    {envios.map((e) => (
+                        <div class="envio">
+                            <h4>{e.nombre}</h4>
+                            <p class="envio-entrega"><span aria-hidden="true">{e.ico}</span>{e.entrega}</p>
+                            <ul>
+                                {e.precios.map(([q, p]) => (
+                                    <li><span>{q}</span><b>${pesos(p)}</b></li>
+                                ))}
+                            </ul>
+                            {e.nota && <p class="k-gris">{e.nota}</p>}
+                        </div>
+                    ))}
+                </div>
+                <div class="envio-pais">
+                    <span class="he-ico" aria-hidden="true">🇲🇽</span>
+                    <div>
+                        <b>Resto del país: Monterrey, Guadalajara, Querétaro, Puebla…</b>
+                        <p>Costo de las micas <b>+ ${envioPais} de envío aprox.</b> por UPS a tu domicilio. Ejemplo: 50 HD o mate = <b>${pesos(50 * 12 + envioPais)}</b>. ¿Fuera de México? Pregúntanos.</p>
+                    </div>
+                </div>
+                <div class="pasos-cta">
+                    <a class="btn btn-wa" href={wa(telHidrogel, 'Hola Celinki, quiero cotizar micas de hidrogel con envío. Ciudad y código postal:')} target="_blank" rel="noopener">📦 Cotizar envío por WhatsApp</a>
                 </div>
 
                 <h3 class="k-flechas" id="cortadoras">Cortadoras de hidrogel KASR</h3>
@@ -427,7 +473,27 @@ const schema = {
     /* Hero */
     .kasr { padding-top: 28px; }
     .hero-sub { font-size: 19px; line-height: 1.55; margin: 14px 0 28px; color: var(--k-texto); max-width: 32ch; }
-    .hero-entrega { display: flex; gap: 16px; align-items: center; padding: 18px 22px; margin-bottom: 28px; border-radius: 14px; background: #f4f9ec; border: 2px solid var(--k-verde); animation: entrar 0.6s ease both; }
+    .hero-entrega { display: flex; gap: 16px; align-items: center; padding: 18px 22px; margin-bottom: 12px; border-radius: 14px; background: #f4f9ec; border: 2px solid var(--k-verde); animation: entrar 0.6s ease both; }
+    .hero-envio { display: flex; gap: 16px; align-items: center; padding: 14px 22px; margin-bottom: 28px; border-radius: 14px; background: #fff; border: 2px dashed var(--k-verde); color: var(--k-texto); text-decoration: none; transition: background 0.2s ease; }
+    .hero-envio:hover { background: #f4f9ec; }
+    .hero-envio b { display: block; font-size: 17px; color: #3f6b12; }
+    .hero-envio small { color: var(--k-gris); }
+    .he-cotiza { color: #3f6b12; font-weight: 800; white-space: nowrap; }
+    .pasos a { color: #3f6b12; font-weight: 700; }
+
+    /* Envíos */
+    .envios-sub { margin: 0 0 12px; }
+    .envios { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .envio { background: #fff; border-radius: 14px; padding: 18px 20px; border-top: 8px solid var(--k-verde); box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07); }
+    .envio h4 { margin: 0; font-size: 19px; }
+    .envio-entrega { margin: 2px 0 10px; display: flex; gap: 8px; font-weight: 700; color: #3f6b12; }
+    .envio ul { list-style: none; padding: 0; margin: 0 0 8px; }
+    .envio li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed #dbe3c8; }
+    .envio li b { font-size: 20px; }
+    .envio .k-gris { margin: 0; }
+    .envio-pais { display: flex; gap: 16px; align-items: center; margin-top: 14px; padding: 16px 20px; border-radius: 14px; background: #f4f9ec; border: 2px solid var(--k-verde); }
+    .envio-pais > div > b { color: #3f6b12; font-size: 17px; }
+    .envio-pais p { margin: 4px 0 0; }
     .he-ico { font-size: 34px; }
     .hero-entrega b { font-size: 20px; color: #3f6b12; }
     .he-lugares { margin: 8px 0 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 800; }
@@ -489,7 +555,13 @@ const schema = {
         .k-encabezado { gap: 18px; padding: 22px 18px 18px; border-left: 0; border-top: 8px solid var(--k-verde); border-radius: 14px; }
         .k-encabezado h1 { font-size: 34px; margin: 0; }
         .hero-sub { font-size: 16px; margin: 8px 0 16px; max-width: none; }
-        .hero-entrega { padding: 14px; gap: 12px; margin-bottom: 16px; }
+        .hero-entrega { padding: 14px; gap: 12px; margin-bottom: 10px; }
+        .hero-envio { padding: 12px 14px; gap: 12px; margin-bottom: 16px; }
+        .hero-envio b { font-size: 16px; }
+        .envios { grid-template-columns: 1fr; gap: 10px; }
+        .envio { padding: 14px; border-top-width: 6px; }
+        .envio li b { font-size: 18px; }
+        .envio-pais { padding: 14px; gap: 12px; font-size: 14px; }
         .he-ico { font-size: 28px; }
         .hero-entrega b { font-size: 18px; }
         .he-lugares { font-size: 14px; }

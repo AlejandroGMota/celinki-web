@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Celinki · tarjeta de agradecimiento</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Tarjeta de 4.25 × 5.5 in (408 × 528 px). Sin hash: hoja carta con 4 tarjetas; con #una: una sola (para la imagen). */
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: Montserrat, 'Avenir Next', Arial, sans-serif; color: #1b1b1f; }
+  .hoja { width: 816px; height: 1056px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; position: relative; }
+  .hoja::before, .hoja::after { content: ''; position: absolute; border: 0 dashed #bbb; }
+  .hoja::before { left: 408px; top: 0; bottom: 0; border-left-width: 1px; }
+  .hoja::after { top: 528px; left: 0; right: 0; border-top-width: 1px; }
+  .una .hoja { width: 408px; height: 528px; display: block; }
+  .una .hoja::before, .una .hoja::after { display: none; }
+  .una .t:not(:first-child) { display: none; }
+
+  .t { width: 408px; height: 528px; padding: 18px 26px 16px; display: flex; flex-direction: column; gap: 9px; border-top: 12px solid #8dc63f; overflow: hidden; }
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 6px; font-weight: 800; font-size: 22px; letter-spacing: -0.4px; }
+  .logo img { width: 22px; height: 22px; }
+  .tag { font-size: 9px; font-weight: 700; letter-spacing: 1.6px; color: #6fa22c; text-transform: uppercase; }
+  h1 { font-family: 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1; color: #6fa22c; text-transform: uppercase; margin-top: 2px; }
+  .intro { font-size: 14px; line-height: 1.4; }
+  .intro b { color: #3f6b12; }
+
+  .regalo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #f4f9ec; border: 2px solid #8dc63f; border-radius: 14px; padding: 12px; position: relative; }
+  .regalo::before { content: '🎁'; position: absolute; top: -16px; right: 12px; font-size: 26px; }
+  .item { background: #fff; border-radius: 10px; padding: 6px 6px 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .item .fig { height: 70px; width: 100%; display: grid; place-items: center; }
+  .item .fig img { max-height: 70px; max-width: 100%; object-fit: contain; }
+  .item .fig svg { height: 66px; }
+  .item b { font-size: 12.5px; line-height: 1.2; }
+  .item b span { display: block; font-size: 20px; color: #3f6b12; }
+
+  .tip { font-size: 11px; line-height: 1.4; color: #4b5563; border-left: 4px solid #8dc63f; padding-left: 8px; }
+  .tip b { color: #1b1b1f; }
+
+  .pie { margin-top: auto; display: flex; gap: 12px; align-items: center; border-top: 1px dashed #cfd6c0; padding-top: 9px; }
+  .qr { width: 60px; height: 60px; flex: none; image-rendering: pixelated; }
+  .pie p { font-size: 11px; line-height: 1.4; }
+  .pie .wa { font-size: 15px; font-weight: 800; }
+  .pie .wa small { display: block; font-size: 10px; font-weight: 700; color: #6b7280; }
+  .pie .envios { color: #3f6b12; font-weight: 700; }
+</style>
+</head>
+<body>
+<template id="t">
+  <section class="t">
+    <div class="top">
+      <div class="logo"><img src="../../public/favicon.svg" alt="">celinki</div>
+      <div class="tag">Micas de hidrogel</div>
+    </div>
+    <h1>¡Gracias por tu compra!</h1>
+    <p class="intro">Por ser tu <b>primera compra</b>, te enviamos de regalo:</p>
+    <div class="regalo">
+      <div class="item">
+        <div class="fig"><img src="../../public/img/hidrogel/privacidad-mate.jpg" alt=""></div>
+        <b><span>1</span>mica de privacidad</b>
+      </div>
+      <div class="item">
+        <div class="fig">
+          <!-- Dos espátulas tipo tarjeta con orilla de fieltro -->
+          <svg viewBox="0 0 120 100" aria-hidden="true">
+            <g transform="rotate(-14 60 50)">
+              <rect x="14" y="22" width="78" height="50" rx="9" fill="#1b1b1f"/>
+              <rect x="14" y="62" width="78" height="10" rx="4" fill="#6b7280"/>
+            </g>
+            <g transform="rotate(8 60 50)">
+              <rect x="30" y="26" width="78" height="50" rx="9" fill="#8dc63f"/>
+              <rect x="30" y="66" width="78" height="10" rx="4" fill="#3f6b12"/>
+              <text x="69" y="54" text-anchor="middle" font-family="Montserrat, Arial" font-weight="800" font-size="13" fill="#fff">celinki</text>
+            </g>
+          </svg>
+        </div>
+        <b><span>2</span>espátulas para colocar tu hidrogel</b>
+      </div>
+    </div>
+    <p class="tip"><b>Tip:</b> limpia bien la pantalla, coloca la mica y pásale la espátula del centro hacia las orillas. Las burbujas pequeñas desaparecen solas en unas 24 horas.</p>
+    <div class="pie">
+      <img class="qr" src="../volante/qr-celinki.png" alt="QR a celinki.com">
+      <div>
+        <p class="wa"><small>Vuelve a pedir por WhatsApp</small>771 868 2542</p>
+        <p>celinki.com · <span class="envios">Envíos a todo México</span></p>
+      </div>
+    </div>
+  </section>
+</template>
+<div class="hoja"></div>
+<script>
+  if (location.hash === '#una') document.documentElement.classList.add('una');
+  const hoja = document.querySelector('.hoja'), t = document.getElementById('t');
+  for (let i = 0; i < 4; i++) hoja.appendChild(t.content.cloneNode(true));
+</script>
+</body>
+</html>
