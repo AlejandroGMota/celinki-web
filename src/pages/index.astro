@@ -48,6 +48,8 @@ const cortadoras: Cortadora[] = [
     { modelo: 'KS-01 Max', corte: '21"', ancho: 293, peso: 7.7, img: 'ks-01-max', precio: 10690 },
     { modelo: 'KS-X7 Max', corte: '22"', ancho: 315, peso: 7.2, img: 'ks-x7-max', precio: 10690 },
 ];
+// Oferta de lanzamiento: la más barata con corte de 13" o más (KS-X5, costo $7,380 + ~$454 del paquete de láminas)
+const oferta = { ...cortadoras.find((c) => c.modelo === 'KS-X5')!, precioOferta: 8990, unidades: 5 };
 const preguntas = [
     ['¿Qué es una mica de hidrogel?', 'Es un protector de pantalla flexible de TPU que cubre toda la pantalla, incluso orillas curvas, y se adhiere sin burbujas. A diferencia del cristal, no se estrella.'],
     ['¿Qué diferencia hay entre HD, mate, Blue Ray y privacidad?', 'HD es transparente y de máxima claridad. Mate quita reflejos y huellas. Blue Ray filtra la luz azul de la pantalla. Privacidad oscurece la pantalla vista de lado; la 360 lo hace por los cuatro lados.'],
@@ -176,6 +178,12 @@ const schema = {
             </div>
         </header>
 
+        <a class="banner-oferta" href="#oferta">
+            <span class="bo-etq">🔥 Oferta</span>
+            <span class="bo-txt">Cortadora <b>{oferta.modelo}</b> <s>${pesos(oferta.precio)}</s> <b class="bo-precio">${pesos(oferta.precioOferta)}</b> · solo {oferta.unidades} unidades</span>
+            <span class="bo-cta">Ver oferta →</span>
+        </a>
+
         <main id="hidrogel" class="kasr">
             <div class="wrap">
                 <div class="k-encabezado">
@@ -302,6 +310,17 @@ const schema = {
                 </div>
 
                 <h3 class="k-flechas" id="cortadoras">Cortadoras de hidrogel KASR</h3>
+                <div class="oferta" id="oferta">
+                    <div class="k-foto k-foto-ancha"><img src={`/img/cortadoras/${oferta.img}.jpg`} alt={`Cortadora de hidrogel KASR ${oferta.modelo} en oferta`} loading="lazy" /></div>
+                    <div class="oferta-info">
+                        <span class="oferta-etq">Oferta de lanzamiento · solo {oferta.unidades} unidades</span>
+                        <h4>{oferta.modelo} <span class="k-corte">Corte {oferta.corte}</span></h4>
+                        <p>Corta micas para cualquier celular. Ancho de corte {oferta.ancho} mm · + 50 láminas sin corte de regalo.</p>
+                        <p class="oferta-precio"><s>${pesos(oferta.precio)}</s> <b>${pesos(oferta.precioOferta)}</b> <small>ahorras ${pesos(oferta.precio - oferta.precioOferta)}</small></p>
+                        <a class="btn btn-wa" href={wa(telHidrogel, `Hola Celinki, quiero la oferta de la cortadora ${oferta.modelo} a $${pesos(oferta.precioOferta)}.`)} target="_blank" rel="noopener">Apartar la mía por WhatsApp</a>
+                        <p class="k-gris">Precio sujeto a tipo de cambio y a existencia.</p>
+                    </div>
+                </div>
                 <div class="k-paquete">
                     <p><b>Arma tu propio negocio de micas.</b> Cada cortadora incluye un <b>paquete inicial de 50 láminas sin corte</b>:</p>
                     <ul>{paquete.map((x) => <li>{x}</li>)}</ul>
@@ -480,6 +499,26 @@ const schema = {
     .hero-envio small { color: var(--k-gris); }
     .he-cotiza { color: #3f6b12; font-weight: 800; white-space: nowrap; }
     .pasos a { color: #3f6b12; font-weight: 700; }
+
+    /* Banner de oferta */
+    .banner-oferta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; padding: 12px 16px; background: linear-gradient(90deg, #c1121f, #e63946, #c1121f); color: #fff; text-decoration: none; text-align: center; font-size: 16px; }
+    .banner-oferta s { opacity: 0.75; }
+    .bo-etq { background: #fff; color: #c1121f; font-weight: 900; padding: 3px 10px; border-radius: 999px; animation: pulso 1.6s ease-in-out infinite; }
+    .bo-precio { font-size: 22px; color: #ffe66d; }
+    .bo-cta { font-weight: 800; text-decoration: underline; white-space: nowrap; }
+    @keyframes pulso { 50% { transform: scale(1.08); } }
+    @media (prefers-reduced-motion: reduce) { .bo-etq { animation: none; } }
+
+    /* Oferta cortadora */
+    .oferta { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; align-items: center; margin: 0 0 18px; padding: 18px; border-radius: 16px; background: #fff; border: 3px solid #e63946; box-shadow: 0 8px 22px rgba(15, 23, 42, 0.09); }
+    .oferta-etq { display: inline-block; background: #e63946; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+    .oferta h4 { margin: 8px 0 4px; font-size: 22px; }
+    .oferta p { margin: 4px 0; }
+    .oferta-precio s { color: var(--k-gris); font-size: 18px; }
+    .oferta-precio b { font-size: 32px; color: #e63946; }
+    .oferta-precio small { font-weight: 800; color: #3f6b12; }
+    .oferta .btn { margin-top: 8px; }
+    @media (max-width: 700px) { .oferta { grid-template-columns: 1fr; } }
 
     /* Envíos */
     .envios-sub { margin: 0 0 12px; }
