@@ -251,7 +251,7 @@ const schema = {
         </script>
         <a class="banner-oferta" href="#oferta">
             <span class="bo-etq">🔥 Oferta</span>
-            <span class="bo-txt">Cortadora <b>{oferta.modelo}</b> <s>${pesos(oferta.precio)}</s> <b class="bo-precio">${pesos(oferta.precioOferta)}</b> · ¡solo quedan {oferta.unidades}!</span>
+            <span class="bo-txt">Cortadora <b>{oferta.modelo}</b> <s>${pesos(oferta.precio)}</s> <b class="bo-precio">${pesos(oferta.precioOferta)}</b> · 🚚 envío gratis a CDMX, Edomex y Pachuca · ¡solo quedan {oferta.unidades}!</span>
             <span class="bo-timer">Termina en <b class="timer-oferta">—</b></span>
             <span class="bo-cta">Ver oferta →</span>
         </a>
@@ -388,9 +388,10 @@ const schema = {
                         <span class="oferta-etq">Oferta de lanzamiento · ¡solo quedan {oferta.unidades} unidades!</span>
                         <p class="oferta-timer">⏳ Termina en <b class="timer-oferta">—</b></p>                        <h4>{oferta.modelo} <span class="k-corte">Corte {oferta.corte}</span></h4>
                         <p>Corta micas para cualquier celular. Ancho de corte {oferta.ancho} mm · + 50 láminas sin corte de regalo.</p>
+                        <p class="oferta-envio">🚚 <b>Envío gratis</b> a Ciudad de México, Estado de México, Pachuca y Mineral de la Reforma</p>
                         <p class="oferta-precio"><s>${pesos(oferta.precio)}</s> <b>${pesos(oferta.precioOferta)}</b> <small>ahorras ${pesos(oferta.precio - oferta.precioOferta)}</small></p>
                         <a class="btn btn-wa" href={wa(telHidrogel, `Hola Celinki, quiero la oferta de la cortadora ${oferta.modelo} a $${pesos(oferta.precioOferta)}.`)} target="_blank" rel="noopener">Apartar la mía por WhatsApp</a>
-                        <p class="k-gris">Precio sujeto a tipo de cambio y a existencia.</p>
+                        <p class="k-gris">Precio sujeto a tipo de cambio y a existencia. Al resto del país, pregúntanos por el envío.</p>
                     </div>
                 </div>
                 <div class="k-paquete">
@@ -608,6 +609,7 @@ const schema = {
     .oferta-precio b { font-size: 32px; color: #e63946; }
     .oferta-precio small { font-weight: 800; color: #3f6b12; }
     .oferta .btn { margin-top: 8px; }
+    .oferta-envio b { color: #3f6b12; }
     @media (max-width: 700px) { .oferta { grid-template-columns: 1fr; } }
 
     /* Envíos */
